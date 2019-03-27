@@ -134,6 +134,12 @@
             position:relative;
             display:inline-block;
             line-height: 32px;
+            .staff_button{
+              background:blue;
+              color:white;
+              border-radius: 5px;
+              padding:0 15px;
+            }
             .pc-header-nav-root{            //マイページ
               float:left;
               position:relative;
