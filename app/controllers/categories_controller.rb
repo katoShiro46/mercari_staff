@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :header_menu,only: [:index,:show]
+  before_action :header_menu,only: [:index,:show,:edit_list]
 
   def index
     @l_categories = Category.roots
@@ -16,5 +16,9 @@ class CategoriesController < ApplicationController
     else
       @items = Item.includes(:category).where(categories:{id:progeny_category.ids}).where.not(id:sold_item).order(id: :DESC)
     end
+  end
+
+  def edit_list
+    @l_categories = Category.roots
   end
 end

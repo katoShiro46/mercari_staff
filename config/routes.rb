@@ -27,5 +27,11 @@ Rails.application.routes.draw do
     end
   end
   resources :categories, only: [:index,:show]
+  resources :staffs,only: :index do
+    collection do
+      resources :categories, only: [:new,:edit,:update,:delete]
+      get 'categoties/edit_list' => 'categories#edit_list'
+    end
+  end
   root 'items#index'
 end
