@@ -1,0 +1,6 @@
+= render partial: "shared/subHeader"
+= render partial: "shared/cards/show"
+- if @card
+  .next-footer
+    = link_to "次へ進む", new_item_deal_path, method: :get, class: "next-button"
+= render partial: "shared/subFooter"

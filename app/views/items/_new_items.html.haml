@@ -1,0 +1,11 @@
+.pickup-container__category-box
+  .pickup-container__category-box__items-name
+    .pickup-title
+      =link_to("#{pick_up.name}新着アイテム","",class:'a_hover')
+  .pickup-container__category-box__item-box
+    -select_items(@pick_up_categories,pick_up)
+    =render partial: "items/item-card", collection: @items,as: :item
+    .clearfix
+  .pickup-container__category-box__view-all
+    =link_to('すべての商品を見る',"",class:'a_hover')
+.clearfix

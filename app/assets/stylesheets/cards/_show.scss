@@ -1,0 +1,77 @@
+.my-container{
+  &-main{
+    &__center{
+      box-sizing: border-box;
+      width: 700px;
+      // background-color: white;
+      vertical-align: middle;
+      .add-card{
+        margin: 0;
+        &__header{
+          height: 50px;
+          border-bottom: solid 1px #f5f5f5;
+          text-align: center;
+          h3{
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 50px;
+          }
+        }
+        &__main{
+          &__title{
+            font-size: 16px;
+            padding: 20px 170px;
+          }
+          &__content{
+            box-sizing: border-box;
+            padding: 0px 170px;
+            &__info{
+              padding: 30px 0;
+              position: relative;
+              .delete-button{
+                position: absolute;
+                top: 50%;
+                right: 0;
+                display: inline-block;
+                padding: 3px 5px;
+                border: solid #ea352d 1px;
+                text-decoration: none;
+                border-radius: 4px;
+                font-size: 14px;
+                background-color: white;
+                color: #ea352d;
+              }
+              &--brand{
+                img{
+                  height: 20px;
+                  width: 50px;
+                }
+              }
+            }
+            .add-button{
+              display: inline-block;
+              padding: 20px 0;
+              margin-bottom: 20px;
+              width: 100%;
+              background-color: #eb352d;
+              font-size: 14px;
+              color: white;
+              text-decoration: none;
+              text-align: center;
+            }
+          }
+        }
+        &__footer{
+          padding: 20px 0;
+          margin: 0 50px;
+          text-align: right;
+          border-top: solid 1px #f5f5f5;
+          a {
+            color: #66CCFEFF;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}

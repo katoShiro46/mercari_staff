@@ -1,0 +1,160 @@
+.edit{
+  box-sizing: border-box;
+  a{
+      float: right;
+      font-size: 14px;
+      text-decoration: none;
+      color: #66CCFEFF;
+      text-align: right;
+    }
+  &-info{
+    &__header{
+      h3{
+        text-align: center;
+        background-color: white;
+        box-sizing: border-box;
+        height: 50px;
+        line-height: 50px;
+        vertical-align: middle;
+        font-size: 22px;
+        font-weight: 600;
+        border-bottom: solid 1px #f5f5f5;
+      }
+    }
+    &__content{
+      background-color: white;
+      padding: 60px 80px;
+      line-height: 40px;
+      .up{
+        margin: 8px 0 0;
+        line-height: 1.5;
+        font-size: 14px;
+      }
+      a{
+        float: right;
+        font-size: 14px;
+        text-decoration: none;
+        color: #66CCFEFF;
+        text-align: right;
+      }
+      form{
+        padding-top: 20px;
+        label{
+          margin-top: 40px;
+          line-height: 14px;
+          font-size: 14px;
+          font-weight: 600;
+          display: inline-block;
+        }
+        .gray{
+          background-color: #ccc;
+        }
+        p{
+          line-height: 14px;
+          font-size: 14px;
+        }
+        span{
+          background: #E80028FF;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: middle;
+          font-size: 12px;
+        }
+        input[type="text"]{
+          box-sizing: border-box;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 10px 16px 8px;
+          width: 100%;
+          height: 48px;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+        input[type="submit"]{
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          margin-top: 40px;
+          color: #fff;
+          height: 48px;
+          line-height: 48px;
+          width: 100%;
+        }
+        select{
+          box-sizing: border-box;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 10px 16px 8px;
+          width: 100%;
+          height: 48px;
+          line-height: 1.5;
+          font-size: 16px;
+          background-color: white;
+        }
+      }
+    }
+  }
+}
+.app-banner{
+        background: url(https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?52584816);
+        &-area{
+          overflow: hidden;
+          position: relative;
+          width: 700px;
+          height: 260px;
+          margin: 0 auto;
+          color: #fff;
+          &__inner{
+            left:0;
+            position: absolute;
+            top:50%;
+            transform: translate(0,-50%);
+            h2{
+              font-size: 24px;
+              text-shadow: 0 0 5px rgba(0,0,0,0.4);
+            }
+            p{
+              font-size: 35px;
+              text-shadow: 0 0 5px rgba(0,0,0,0.4);
+              margin: 10px 0 0;
+            }
+            &-icon{
+              margin: 20px 0 0 0;
+              .figure{
+                float: left;
+                img{
+                  vertical-align: middle;
+                  max-width: 68px;
+                }
+              }
+              ul{
+                margin: 0 0 0 24px;
+                line-height: 68px;
+                li{
+                  float: left;
+                  margin: 0 16px 0 0;
+                  a{
+                    line-height: 68px;
+                    img{
+                      vertical-align: middle;
+
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .figure-right{
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 300px;
+            height: 100%;
+            img{
+              width: 100%;
+            }
+          }
+        }
+      }

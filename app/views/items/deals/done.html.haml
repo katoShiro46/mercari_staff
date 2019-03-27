@@ -1,0 +1,64 @@
+= render partial:'shared/subHeader'
+.deal-done
+  .deal-done__container
+    .deal-done__container__notice
+      %h3
+        = fa_icon("clock-o 2x")
+        %span 発送をお待ちください
+      %p
+        出品者からの発送通知をお待ちください
+    .deal-done__container__title
+      %h1 購入が完了しました
+    .deal-done__container__main
+      .deal-done__container__main__item
+        .deal-done__container__main__item--image
+          =image_tag(@image.image)
+        .deal-done__container__main__item--name
+          = @item.name
+    .deal-done__container__price
+      = "¥#{@item.price.to_s(:delimited)}"
+      %span 送料込み
+    .deal-new__container__vendor
+      .deal-new__container__vendor__info
+        %h3 配送先
+        - if @vendor
+          .deal-new__container__vendor__info--post_number
+            = "〒#{@vendor.post_number}"
+          .deal-new__container__vendor__info--address
+            = "#{@vendor.prefecture.name} #{@vendor.city} #{@vendor.address} #{@vendor.building_name}"
+          .deal-new__container__vendor__info--nickname
+            = current_user.nickname
+        - else
+          .deal-new__container__vendor__info--none
+            %span /
+    .deal-done__container__card
+      .deal-done__container__card__info
+        %h3 支払方法
+        - if @card
+          .deal-done__container__card__info--last4
+            = "************#{@card.last4}"
+          .deal-done__container__card__info--exp
+            = "#{@card.exp_month}/#{@card.exp_year}"
+          .deal-done__container__card__info--brand
+            = selected_card_image(@card.brand)
+        - else
+          .deal-done__container__card__info--none
+            %span /
+    .deal-done__container__flow
+      %h3 発送通知後の流れ
+      %p.icons
+        = fa_icon("star 1x")
+        = fa_icon("smile-o 2x")
+        = fa_icon("meh-o 2x")
+        = fa_icon("frown-o 2x")
+        = fa_icon("star 1x")
+      %p.info
+        商品を受け取ったら
+        %br
+        出品者の評価をしましょう。
+        %br
+        購入代金が出品者に振り込まれます。
+        %br
+        評価後に取引は完了です。
+      = link_to("マイページへ戻る", users_path, {class: "my-page-link"})
+= render partial:'shared/subFooter'

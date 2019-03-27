@@ -1,0 +1,106 @@
+=render partial: '/users/shared/users_register'
+.register-main
+  %h2.register-header.second_header
+    会員情報入力
+  .register-main__content
+    = form_for(resource, as: resource_name, url: user_registration_path) do |f|
+      = render partial:"users/shared/error_messages", resource: resource
+      .on-display
+        .field
+          = f.label :nickname, "ニックネーム"
+          %span 必須
+          %br
+          = f.text_field :nickname, autofocus: true, autocomplete: "nickname",placeholder: '例)メルカリ太郎'
+        .field
+          = f.label :email, "メールアドレス"
+          %span 必須
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'PC・携帯どちらでも可'
+        - if @user.social_profiles.present?
+          .field{style:"display: none"}
+            = f.label :password, "パスワード"
+            %span 必須
+            %br/
+            = f.password_field :password, autocomplete: "new-password",placeholder:'６文字以上'
+          .field{style: "display: none"}
+            = f.label :password_confirmation, "パスワード（確認）"
+            %span 必須
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:'6文字以上'
+            = f.fields_for :social_profiles do |s|
+              =s.text_field :provider
+              =s.text_field :uid
+        - else
+          .field
+            = f.label :password, "パスワード"
+            %span 必須
+            %br/
+            = f.password_field :password, autocomplete: "new-password",placeholder:'６文字以上'
+          .field
+            = f.label :password_confirmation, "パスワード（確認）"
+            %span 必須
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:'6文字以上'
+        %h3 本人確認
+        %p
+          安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .field
+          = f.label :family_name, "姓（全角）"
+          %span 必須
+          %br/
+          = f.text_field :family_name, autofocus: true, autocomplete: "family_name",placeholder:'例）山田'
+        .field
+          = f.label :first_name, "名（全角）"
+          %span 必須
+          %br/
+          = f.text_field :first_name, autofocus: true, autocomplete: "first_name",placeholder:'例）彩'
+        .field
+          = f.label :family_name_phonetic, "姓カナ（全角）"
+          %span 必須
+          %br/
+          = f.text_field :family_name_phonetic, autofocus: true, autocomplete: "family_name_phonetic",placeholder:'ヤマダ'
+        .field
+          = f.label :first_name_phonetic, "名カナ（全角）"
+          %span 必須
+          %br/
+          = f.text_field :first_name_phonetic, autofocus: true, autocomplete: "first_name_phonetic",placeholder:'アヤ'
+        .field.last
+          = f.label '生年月日'
+          %span 必須
+          %br/
+          = f.collection_select :birth_year, Year.all, :id, :name, include_blank: '--'
+          %span.label 年
+          %br/
+          = f.collection_select :birth_month, Month.all, :id, :name, include_blank: '--'
+          %span.label 月
+          %br/
+          = f.collection_select :birth_day, Day.all, :id, :name, include_blank: '--'
+          %span.label 日
+      %p.confirm
+        ※ 本人情報は正しく入力してください。
+        %br/
+        会員登録後、修正するにはお時間を頂く場合があります
+      #checkmark
+        =fa_icon('square')
+        私はロボットではありません
+      %p.next-text
+        「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+      %input.next_form{type: "button", value: "次へ"}/
+      .confirm-tel.no-display
+        .confirm-tel__content
+          .form__up
+            %h3 電話番号
+            =f.telephone_field :tellphone
+            %p SMSで届いた番号を入力してください
+            =f.submit '認証して完了'
+          .form-middle
+            %p.up 30秒たっても番号が届かない方へ
+            %p.down 電話で認証番号を聞くこともできます。
+            =submit_tag '電話で認証番号を聞く（通話無料）'
+          .form-under
+            %p.note
+              ※認証番号を再送することもできます。もう一度電話番号を入力してください。
+            =link_to '電話番号から再入力する','#'
+            %p.last
+              SMSが届かない場合はSMS受信設定を確認してください
+= render partial:'/shared/subFooter'

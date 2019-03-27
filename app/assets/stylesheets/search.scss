@@ -1,0 +1,44 @@
+.search-item-card{
+  background:#ffffff;
+  width:213px;
+  float:left;
+  margin:80px 0 0 60px;
+  color:black;
+  &__image{
+    img{
+      height:220px;
+      width:213px;
+      object-fit: cover;
+    }
+  }
+  &__information{
+    height:110px;
+    padding:16px;
+    &__name{
+      font-weight: 400;
+      height:3em;
+      line-height:1.5;
+      word-break:break-word;
+      white-space: normal;
+      font-size:16px;
+    }
+    &__detail{
+      margin: 8px 0 0;
+      .price{
+        float:left;
+        font-size:20px;
+        line-height: 20px;
+      }
+      .likes{
+        float:right;
+        .fa{
+        }
+      }
+      .tax{
+        font-size:10px;
+        line-height: 10px;
+      }
+    }
+  }
+
+}

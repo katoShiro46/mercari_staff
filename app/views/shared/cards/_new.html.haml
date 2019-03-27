@@ -1,0 +1,50 @@
+.card
+  .card-main
+    .card-main__header
+      %h2 クレジットカード情報入力
+    .card-main__content
+      = form_tag({action: :create}, {method: :post, class: "card-main__content__add-card"}) do
+        %ul.card-main__content__add-card--general-error
+        .card-main__content__add-card__number
+          = label :number, 'カード番号'
+          %span.requierd 必須
+          = text_field_tag :number, "", placeholder: '半角数字のみ', maxlength: "19"
+          %ul.card-main__content__add-card__number--error
+        .card-main__content__add-card__card-kinds
+          %ul
+            %li.visa
+              = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/visa.svg')
+            %li.master
+              = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg')
+            %li.saison
+              = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg')
+            %li.jcb
+              = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg')
+            %li.american
+              = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg')
+            %li.dinor
+              = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg')
+            %li.discover
+              = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/discover.svg')
+        .card-main__content__add-card__exp
+          = label :exp, '有効期限'
+          %span.requierd 必須
+          .card-main__content__add-card__exp--month
+            = select_tag :exp_month, options_for_select(1..12)
+            %span 月
+          .card-main__content__add-card__exp--year
+            = select_tag :exp_year, options_for_select(Date.today.year..Date.today.year + 10)
+            %span 年
+          %ul.card-main__content__add-card__exp--error
+        .card-main__content__add-card__cvc
+          = label :cvc, 'セキュリティーコード'
+          %span.requierd 必須
+          = text_field_tag :cvc, "",  placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
+          %ul.card-main__content__add-card__cvc--error
+          .card-main__content__add-card__cvc--text
+            カード裏面の番号とは
+          .card-main__content__add-card__cvc__pop
+            .card-main__content__add-card__cvc__pop--info
+              %p カードの裏面をご参照ください。
+              = image_tag("https://www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?2845599746")
+        = submit_tag submit_info, class: "card-main__content__add-card--submit"

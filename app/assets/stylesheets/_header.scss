@@ -1,0 +1,313 @@
+// ======header部分========================
+.items-header{
+  display:block;
+  position:relative;
+  z-index:1001;
+  background:#fff;
+  ul{
+    list-style:none;
+  }
+  a{
+    text-decoration:none;
+    font-size:14px;
+    color:#333;
+  }
+  img{
+    vertical-align: middle;
+  }
+  .inner{
+    width:1020px;
+    margin: 0 auto;
+    padding: 8px 0 0;
+    .pc-header-search-box{
+      @include clearfix;
+      .l-left{
+        float:left;
+        a{
+          width: 134px;
+          height:36px;
+          display:block;
+        }
+      }
+      .pc-header-form.l-right{
+        position:relative;
+        width: calc(100% - (134px + 16px));
+        float:right;
+        .input-default{
+          width:100%;
+          height:36px;
+          padding:9px 32px 9px 8px;
+          background: #fafafa;
+          border-radius:4px;
+          transition:all;
+        }
+        .icon-search{
+          position:absolute;
+          top:0;
+          right: 0;
+          width:30px;
+          height:36px;
+          line-height:36px;
+          cursor:pointer;
+          text-align:center;
+        }
+      }
+    }
+    .pc-header-nav-box{
+      margin:8px 0 0;
+      @include clearfix;
+      .l-left{
+        float:left;
+        height: 40px;
+        .pc-header-nav{
+          position:relative;
+          li{
+            display:inline-block;
+            .pc-header-nav-root{
+              line-height:40px;
+              padding-right:16px;
+            }
+            .large-category-wrap{   //カテゴリ大
+              position:absolute;
+              width:224px;
+              height:calc(44px * 14);
+              top:40px;
+              z-index:1000;
+              background:#fff;
+              display:none;
+              box-shadow:1px 1px 0px 0px #eee;
+              border-left:1px solid #eee;
+              .large-category{
+                width:224px;
+                a{
+                  font-weight: 400;
+                  font-size:14px;
+                  margin:0 16px;
+                  line-height:44px;
+                }
+                .middle-category-wrap{  //カテゴリ中
+                  position:absolute;
+                  height:calc(44px * 14);
+                  top:0;
+                  left:224px;
+                  background:#fff;
+                  box-shadow:1px 1px 0 0 #eee;
+                  border-left:1px solid #eee;
+                  display:none;
+                  .middle-category{
+                    width:224px;
+                    padding:8px 0px;
+                    a{
+                      line-height: 0px;
+                    }
+                    .small-category-wrap{    //カテゴリ小
+                      position:absolute;
+                      height:calc(44px * 14);
+                      top:0;
+                      left:224px;
+                      bottom:0;
+                      background: #fff;
+                      box-shadow: 1px 1px 0 0 #eee;
+                      border-left:1px solid #eee;
+                      display:none;
+                      .small-category{
+                        width: 320px;
+                        padding:8px 0px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .l-right{
+        float:right;
+        .pc-header-user-nav{                     //右側
+          a{
+            display:block;
+            font-size: 14px;
+            color:#333;
+          }
+          li{
+            position:relative;
+            display:inline-block;
+            line-height: 32px;
+            .pc-header-nav-root{            //マイページ
+              float:left;
+              position:relative;
+              height:38px;
+              .user-icon{
+                width:32px;
+                border-radius:16px;
+              }
+            }
+            .mypage-title{
+              float:right;
+              padding:0 0 0 10px;
+            }
+            .mypage-box{
+              position:absolute;
+              left:0;
+              top:38px;
+              z-index: 1;
+              display:none;
+              width:320px;
+              background:#fff;
+              box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
+              font-size:14px;
+              .pc-header-mypage-state.text-center{
+                .user-background{
+                  padding:28px 0 0;
+                  margin:0 0 0px;
+                  height:80px;
+                  background-image:url(/assets/user-bg.jpg);
+                  background-repeat: no-repeat;
+                  background-size:320px 80px;
+                  .user-icon{
+                    img{
+                      display:block;
+                      margin:0 auto;
+                      border-radius:30px;
+                      width:60px;
+                    }
+                  }
+                  .user-name{
+                    margin:8px auto;
+                    text-align:center;
+                    font-size:16px;
+                  }
+                }
+                .pc-header-mypage-review-listing{
+                  margin:20px 8px 0;
+                  text-align:center;
+                  li{
+                    display:inline-block;
+                    font-size:14px;
+                    a{
+                      display:block;
+                      font-size:14px;
+                      color:#333;
+                    }
+                  }
+                }
+                .pc-header-mypage-sales-point{
+                  width: 300px;
+                  margin:16px auto;
+                  background: #fafafa;
+                  border:1px solid #eee;
+                  li{
+                    border-top:1px solid #eee;
+                  }
+                }
+              }
+              .mypage-nav-list{
+                a{
+                  margin:0;
+                }
+                .fa{
+                  float:right;
+                  line-height: 48px;
+                  width: 30px;
+                }
+                li{
+                  border-top:1px solid #eee;
+                  padding:0px;
+                  width:100%;
+                  .mypage-nav-list-item{
+                    line-height: 48px;
+                    min-height:48px;
+                    background: #fff;
+                    margin:0 0 0 16px;
+                    width:300px;
+                  }
+                }
+              }
+            }
+          }
+          li{
+            position:relative;
+            display:inline-block;
+            padding: 0 0 0 16px;
+            vertical-align: middle;
+            .pc-header-nav-root{
+              position:relative;
+              height:38px;
+              line-height:32px;
+              .icon-bell{
+                font-size:17px;
+              }
+            }
+            .pc-header-user-box.pc-header-notification-box.mypage-item-list{
+              left:50%;
+              transform: translate(-50%,0);                               //これの後ろ,お知らせ機能の実装に合わせて作り込み必要
+
+              li{
+                border-bottom:1px solid #eee;
+                position:relative;
+                .mypage-item-link{
+                  min-height:80px;
+                  padding:16px;
+                }
+              }
+            }
+          }
+          li{                       //やることリスト(上と共通で問題なしか？？)
+            position:relative;
+            display:inline-block;
+            padding: 0 0 0 16px;
+            vertical-align: middle;
+          }
+        }
+      }
+      .l-right_not-login{
+        float:right;
+        .login-button{
+          margin:0px 10px 5px 0;
+          padding:6px 0px;
+          float:right;
+          border-radius:5px;
+          background-color:rgb(234,53,45);
+          a{
+            margin:10px 15px;
+            color:white;
+          }
+        }
+        .new-user-button{
+          margin:0px 0px 5px 0;
+          padding:6px 0px;
+          float:right;
+          border:1px solid rgb(0,153,232);
+          border-radius:5px;
+          a{
+            margin:10px 10px;
+            color:rgb(0,153,232);
+          }
+        }
+      }
+    }
+  }
+}
+.bread-crumbs{
+  border-top:$border;
+  background-color: white;
+  position: relative;
+  z-index: 1000;
+  @include box-shadow;
+  &__main{
+    width: 1020px;
+    line-height: 48px;
+    margin: 0 auto;
+    font-size: 14px;
+    color:#333;
+    a{
+      height: 48px;
+      color:#333;
+      text-decoration: none;
+    }
+    a:hover{
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,360 @@
+.item-new{
+  width:100vw;
+  height:100%;
+  padding-bottom:30px;
+  background-color: $offwhite;
+  .item-new-container{
+    width:700px;
+    height:100%;
+    background-color:white;
+    margin:0 auto;
+    h2{
+      width:100%;
+      height:40px;
+      margin:0 auto;
+      padding:30px 0;
+      font-size: 1.5em;
+      font-weight: 800;
+      text-align: center;
+      line-height: 40px;
+      border-bottom:$border;
+    }
+    span{
+      width:6%;
+      height:4%;
+      color:white;
+      padding:2px;
+      font-size:0.8em;
+      font-weight:700;
+      background-color:red;
+      border-radius:2px;
+      margin-top:10px;
+    }
+  h3{
+    width:25%;
+    font-size:0.9em;
+    font-weight:800;
+    float:left;
+  }
+  .select{
+    width:100%;
+    height:24px;
+    margin:5px 0 8px;
+  }
+  .hidden{
+    visibility: hidden;
+  }
+  .post-image{
+    width:100%;
+    border-bottom:$border;
+    overflow:hidden;
+    padding:20px 0;
+    &-body{
+      @include new-body;
+      h3{
+        width:70px;
+        font-weight:800;
+        float:left;
+      }
+      p{
+        margin-top: 3px;
+        font-size:14px;
+      }
+      &-field{
+        width:100%;
+        max-height: 252px;
+        margin-top:10px;
+        background-color:$offwhite;
+        border:1px dotted;
+        overflow:hidden;
+        &-zone{
+          height:70%;
+          padding:0 10px;
+          ul li{
+            display:inline-block;
+            z-index: 10;
+          }
+          li{
+            width:120px;
+            height:120px;
+            img{
+              width:98px;
+              height:95px;
+            }
+            a{
+              display:block;
+              width:40%;
+              float:left;
+              color:$linkblue;
+              text-align:center;
+              }
+            }
+            .sell-dropbox-uploader{
+              height:200px;
+              position:relative;
+              }
+            pre{
+              width:100%;
+              display:block;
+              text-align:center;
+              position:absolute;
+              top: 380px;
+              right:0px;
+          }
+        }
+      }
+    }
+  }
+  .post-item{
+    width:100%;
+    height:320px;
+    padding-top:40px;
+    border-bottom:$border;
+    &-body{
+      @include new-body;
+      &-title{
+        margin-bottom: 8px;
+        h3{
+          width:50px;
+          font-weight:800;
+          float:left;
+        }
+      }
+      input{
+        width:100%;
+        height:50px;
+        border:$input-box;
+        border-radius:4px;
+        padding-left: 10px;
+      }
+      &-description{
+        margin:32px 0 8px;
+        h3{
+          width:95px;
+        }
+      }
+      textarea.description{
+        width:98%;
+        height:120px;
+        border:$input-box;
+        border-radius:4px;
+        padding:10px;
+      }
+    }
+  }
+  .post-category{
+    width:100%;
+    padding:40px 0;
+    border-bottom:$border;
+    overflow:hidden;
+    &-body{
+      width:90%;
+      margin:0 auto;
+      &__show{
+        @include body-show;
+        p{
+          @include body-show-font;
+        }
+      }
+      &__select{
+        @include select-box;
+        h3{
+            width:80px;
+          }
+        select{
+          width:100%;
+          height:50px;
+          margin:5px 0;
+          background-color:white;
+        }
+        .select-middle{
+          display:none;
+        }
+        .select-small{
+          display:none;
+        }
+        .select-size{
+          display:none;
+        }
+        .select-brand{
+          display:none;
+        }
+        h3.size{
+          width:50px;
+        }
+        h3.brand{
+          width:60px;
+        }
+        input{
+          width:98%;
+          height:50px;
+          margin:5px 0;
+          padding-left:10px;
+          border-radius:4px;
+          border: $input-box;
+        }
+          span.optional{
+            width:6%;
+            height:4%;
+            color:white;
+            padding:3px;
+            font-size:0.8em;
+            font-weight:700;
+            background-color:rgb(204,204,204);
+            border-radius:2px;
+          }
+        }
+      }
+    }
+  }
+  .fa-question-circle{
+    margin-left:5px;
+    color:$linkblue;
+  }
+  .post-delivery{
+    width:100%;
+    padding:40px 0;
+    border-bottom:$border;
+     overflow: hidden;
+    &-body{
+      @include new-body;
+      &__show{
+        @include body-show;
+        p{
+          @include body-show-font;
+        }
+      }
+      &__select{
+        @include select-box;
+        select{
+          width:100%;
+          height:50px;
+          margin-bottom:10px;
+          background-color:white;
+        }
+        .select_shipping_method{
+          display:none;
+        }
+        h3.shipping-date{
+            width:115px;
+          }
+      }
+    }
+  }
+  .post-price{
+    width:100%;
+    height:280px;
+    padding-top:40px;
+    border-bottom:$border;
+    &-body{
+      @include new-body;
+      &__show{
+        @include body-show;
+        p{
+          @include body-show-font;
+        }
+        .integer{
+          font-size:0.6em;
+          margin-top:5px;
+        }
+      }
+      &__select{
+        @include select-box;
+        ul{
+          width:100%;
+          height:85%;
+          li.input{
+            width:100%;
+            height:50px;
+            padding-bottom: 20px;
+            line-height:50px;
+            h3{
+              width:10%;
+            }
+            .price-box{
+              height:100%;
+              width:50%;
+              float:right;
+              .en{
+                width:8%;
+                float:left;
+                font-size:0.8em;
+              }
+              input{
+                width:80%;
+                height:100%;
+                float:right;
+                border-radius:4px;
+                border:$input-box;
+                font-size:0.8em;
+                text-align: right;
+                padding-right:10px;
+              }
+            }
+          }
+          li.commission{
+            width:100%;
+            height:60px;
+            border-top:$border;
+            border-bottom:$border;
+            p.left{
+              width:50%;
+              font-size:0.8em;
+              line-height:60px;
+              float:left;
+            }
+            p.right{
+              width:48%;
+              font-size:0.8em;
+              line-height:60px;
+              float:left;
+              text-align:right;
+            }
+          }
+          li.profits{
+            width:100%;
+            height:60px;
+            line-height:60px;
+            .profits-form{
+              width:75%;
+              float:left;
+              text-align:right;
+              font-weight:800;
+              font-size:1.5em;
+            }
+          }
+        }
+      }
+    }
+  }
+  .post-submit{
+    width:85%;
+    height:250px;
+    margin:0 auto;
+    padding:40px 0;
+    &-text{
+      font-size:0.8em;
+      padding-bottom:40px;
+      a{
+        color:$linkblue;
+      }
+    }
+    .sell-btn{
+      width:100%;
+      height:50px;
+      background-color:red;
+      font-size:0.9em;
+      color:white;
+      margin-bottom:30px;
+    }
+    button.back-btn{
+      width:50%;
+      height:50px;
+      display:block;
+      color:white;
+      font-size:1em;
+      background-color:rgb(170,170,170);
+      margin:0 auto;
+  }
+}
+}

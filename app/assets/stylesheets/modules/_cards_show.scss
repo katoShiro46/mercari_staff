@@ -1,0 +1,63 @@
+.add-card{
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 700px;
+  background-color: white;
+  vertical-align: middle;
+  &__header{
+    height: 50px;
+    border-bottom:$border;
+    text-align: center;
+    h3{
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 50px;
+    }
+  }
+  &__main{
+    @include border-box;
+    // border-bottom:$border;
+    padding: 50px 130px 0 130px;
+    margin: 0 40px;
+    &__title{
+      font-size: 16px;
+      font-weight:550;
+    }
+    &__content{
+      &__info{
+        padding: 30px 0;
+        position: relative;
+        &--brand{
+          img{
+            height: 20px;
+            width: 50px;
+          }
+        }
+        .delete-button{
+          position: absolute;
+          top: 50%;
+          right: 0;
+          display: inline-block;
+          padding: 3px 5px;
+          border: solid #ea352d 1px;
+          text-decoration: none;
+          border-radius: 4px;
+          font-size: 14px;
+          background-color: white;
+          color: #ea352d;
+        }
+      }
+      .add-button{
+        display: inline-block;
+        padding: 20px 0;
+        margin-bottom: 20px;
+        width: 100%;
+        background-color: #eb352d;
+        font-size: 14px;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+      }
+    }
+  }
+}

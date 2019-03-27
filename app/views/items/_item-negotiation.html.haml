@@ -1,0 +1,22 @@
+.negotiation
+  .left-box
+    =link_to root_path,class:'commenter-image' do
+      =image_tag(comment.user.icon)
+      -if comment.user.id == @item.vendor_id
+        .vendor 出品者
+  .right-box
+    .right-box__commenter
+      =comment.user.nickname
+    .right-box__comment-area
+      -# 余裕があれば非同期化
+      .right-box__comment-area__comment=comment.comment
+      .cleafix
+      .right-box__comment-area__option
+        .option-left
+          =fa_icon("clock-o")
+          -# 余裕があれば非同期化
+          =time_ago_in_words(comment.created_at)
+        .option-right
+          =fa_icon("flag-o")
+        .clearfix
+  .clearfix

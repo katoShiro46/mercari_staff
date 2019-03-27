@@ -1,0 +1,19 @@
+.next-footer{
+  @include border-box;
+  background-color: white;
+  width: 700px;
+  margin: 0 auto;
+  border-top:$border;
+  padding: 50px 150px;
+  .next-button{
+    @include border-box;
+    display: inline-block;
+    width: 100%;
+    background-color: #eb352d;
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    line-height: 50px;
+    text-align: center;
+  }
+}

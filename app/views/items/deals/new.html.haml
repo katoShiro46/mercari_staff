@@ -1,0 +1,58 @@
+= render partial:'shared/subHeader'
+.deal-new
+  .deal-new__container
+    .deal-new__container__title
+      %h1 購入を確定しますか？
+    .deal-new__container__main
+      .deal-new__container__main__item
+        .deal-new__container__main__item--image
+          =image_tag(@image.image)
+        .deal-new__container__main__item--name
+          = @item.name
+      .deal-new__container__main__price
+        = "¥#{@item.price.to_s(:delimited)}"
+        %span 送料込み
+      .deal-new__container__main__point
+        ポイントはありません
+      .deal-new__container__main__total-price
+        %span.left
+          支払い金額
+        %span.right
+          = "¥#{@item.price.to_s(:delimited)}"
+      - if @card && @vendor
+        = link_to("購入する", {action: :create}, {method: :post, class: "buy-button"})
+      - else
+        .deal-new__container__main__error
+          配送先と支払い方法の入力を完了してください。
+        = link_to("購入する", {action: :create}, {method: :post, class: "invalid-buy-button"})
+    .deal-new__container__vendor
+      .deal-new__container__vendor__info
+        %h3 配送先
+        - if @vendor
+          .deal-new__container__vendor__info--post_number
+            = "〒#{@vendor.post_number}"
+          .deal-new__container__vendor__info--address
+            = "#{@vendor.prefecture.name} #{@vendor.city} #{@vendor.address} #{@vendor.building_name}"
+          .deal-new__container__vendor__info--nickname
+            = current_user.nickname
+        - else
+          .deal-new__container__vendor__info--none
+            %span /
+      .deal-new__container__vendor__change
+        = link_to "変更する >","/"
+    .deal-new__container__card
+      .deal-new__container__card__info
+        %h3 支払方法
+        - if @card
+          .deal-new__container__card__info--last4
+            = "************#{@card.last4}"
+          .deal-new__container__card__info--exp
+            = "#{@card.exp_month}/#{@card.exp_year}"
+          .deal-new__container__card__info--brand
+            = selected_card_image(@card.brand)
+        - else
+          .deal-new__container__card__info--none
+            %span /
+      .deal-new__container__card__change
+        = link_to "変更する >", item_deal_card_path
+= render partial:'shared/subFooter'

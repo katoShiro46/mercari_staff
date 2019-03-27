@@ -1,0 +1,21 @@
+.add-card
+  .add-card__header
+    %h3 支払い方法
+  .add-card__main
+    .add-card__main__title
+      クレジットカード一覧
+    .add-card__main__content
+      - if @card
+        .add-card__main__content__info
+          .add-card__main__content__info--brand
+            = selected_card_image(@card.brand)
+          .add-card__main__content__info--last4
+            ************#{@card.last4}
+          .add-card__main__content__info--exp
+            #{@card.exp_month}/#{@card.exp_year}
+          = link_to({action: :destroy}, {method: :delete, class: "delete-button"}) do
+            削除する
+      - else
+        = link_to({action: :new},{method: :get, class: "add-button"}) do
+          =fa_icon('credit-card')
+          クレジットカードを追加する

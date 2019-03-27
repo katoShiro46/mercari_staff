@@ -1,0 +1,150 @@
+.item-buy{
+  width:100%;
+  height: 100%;
+  padding-top:10px;
+  background-color:$offwhite;
+  &-container{
+    width:50%;
+    height:100%;
+    margin: 0 auto;
+    background-color:white;
+    &__title{
+      width:100%;
+      height:100px;
+      border-bottom:$border;
+      h1{
+        text-align: center;
+        line-height: 100px;
+        font-size:1.3em;
+        font-weight:800;
+      }
+    }
+    &__main{
+      width:100%;
+      height:550px;
+      border-bottom:$border;
+      &-body{
+        width:45%;
+        height:95%;
+        margin:auto;
+        .item-image{
+          width:35%;
+          height:150px;
+          padding-top:30px;
+          margin:0 auto;
+          img{
+            width:100%;
+            height:100%;
+          }
+        }
+        p.name{
+          font-weight:700;
+          font-size:0.9em;
+          text-align:center;
+          padding-top:10px;
+        }
+        .item-price{
+          width:100%;
+          padding-top:10px;
+          height:60px;
+          line-height:60px;
+          h3{
+            width:50%;
+            height:100%;
+            font-size:1.3em;
+            font-weight:800;
+            float:left;
+            text-align:right;
+          }
+          span{
+            width:45%;
+            height:100%;
+            float:left;
+            font-size:0.8em;
+            margin:5px 0 0 10px;
+          }
+        }
+        .item-point{
+          width:100%;
+          margin:0 auto;
+          height:50px;
+          text-align:center;
+          line-height:40px;
+          background-color:$lightgray;
+          font-size:0.8em;
+        }
+        .item-all-price{
+          width:100%;
+          height:50px;
+          padding-top:20px;
+          &__left{
+            width:60%;
+            height:100%;
+            font-size:1.6em;
+            font-weight:800;
+            float:left;
+          }
+          &__right{
+            width:35%;
+            height:90%;
+            margin-top: 5px;
+            font-size:1.4em;
+            font-weight:750;
+            float:left;
+          }
+        }
+       p.help{
+         padding-top:10px;
+         font-size:0.8em;
+         color:red;
+        }
+        button.buy-btn{
+          display:block;
+          width:100%;
+          height:50px;
+          margin-top:15px;
+          color:white;
+          font-size: 1em;
+          font-weight:750;
+          background-color:$darkgray;
+        }
+      }
+    }
+    .change-address{
+          width:100%;
+          height:10px;
+          padding-top:15px;
+          text-align:right;
+          a{
+            font-size:0.8em;
+            color:$linkblue;
+          }
+        }
+    &__delivery{
+      width:100%;
+      height:180px;
+      margin-top:20px;
+      border-bottom:$border;
+      &-body{
+        @include buy-body;
+        h3{
+          @include buy-h3;
+        }
+        address{
+          font-size:0.8em;
+        }
+      }
+    }
+    &__fee{
+      margin-top:20px;
+      width:100%;
+      height:160px;
+      &-body{
+        @include buy-body;
+        h3{
+          @include buy-h3;
+        }
+      }
+    }
+  }
+}

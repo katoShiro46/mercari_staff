@@ -1,0 +1,33 @@
+
+.session
+  .session-main
+    .session-main__header
+      = link_to root_path do
+        = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2855175014")
+    .session-main__api
+      %h6
+        あなたの情報を守るために
+        %br
+        再度ログインを行なってください。
+      =link_to '#' do
+        .facebook
+          =link_to '/users/auth/facebook' do
+            =fa_icon('facebook')
+            %span
+              Facebookでログイン
+      =link_to '#' do
+        .google
+          =fa_icon('google')
+          %span
+            Googleでログイン
+    .session-main__form
+      =form_tag("#") do
+        =text_field :user, :email,placeholder: 'メールアドレス'
+        =password_field :user,:password,placeholder: 'パスワード'
+        #checkmark
+          =fa_icon('square')
+          私はロボットではありません
+
+        =submit_tag 'ログイン '
+        =link_to 'パスワードをお忘れの方', '#'
+= render partial:'/shared/subFooter'

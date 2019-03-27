@@ -1,0 +1,181 @@
+.deal-new{
+  width:100%;
+  height: 100%;
+  background-color:$offwhite;
+  &__container{
+    width:50%;
+    margin: 0 auto;
+    background-color:white;
+    &__title{
+      height:100px;
+      border-bottom:$border;
+      h1{
+        text-align: center;
+        line-height: 100px;
+        font-size: 1.3em;
+        font-weight: 800;
+      }
+    }
+    &__main{
+      @include border-box;
+      // width:45%;
+      padding: 30px 25%;
+      margin: 0 auto;
+      border-bottom: $border;
+      &__item{
+        max-width: 500px;
+        max-height: 500px;
+        margin: 0 auto;
+        &--image{
+          width:50%;
+          margin:0 auto;
+          img{
+            width:100%;
+            height:100%;
+          }
+        }
+        &--name{
+          font-weight:700;
+          font-size:0.9em;
+          text-align:center;
+          padding-top:10px;
+        }
+      }
+      &__price{
+        padding-top:20px;
+        height:60px;
+        font-size:1.6em;
+        font-weight:550;
+        text-align:center;
+        span{
+          font-weight:400;
+          font-size:0.5em;
+        }
+      }
+      &__point{
+        height:50px;
+        text-align:center;
+        line-height:50px;
+        background-color:$lightgray;
+        font-size:0.8em;
+      }
+      &__total-price{
+        height:50px;
+        padding-top:20px;
+        span.left{
+          display: inline-block;
+          width:60%;
+          font-size:1.8em;
+          font-weight:800;
+          text-align:left;
+        }
+        span.right{
+          display: inline-block;
+          width:38%;
+          font-size:1.6em;
+          font-weight:550;
+          text-align:right;
+        }
+      }
+      &__error{
+         padding-top:10px;
+         font-size:0.8em;
+         color:red;
+      }
+      a.buy-button{
+        display:block;
+        height:50px;
+        margin-top:15px;
+        color:white;
+        font-size: 1em;
+        font-weight:750;
+        line-height: 50px;
+        text-align: center;
+        text-decoration: none;
+        background-color:$activered;
+      }
+      a.invalid-buy-button{
+        display:block;
+        pointer-events: none;
+        height:50px;
+        margin-top:15px;
+        color:white;
+        font-size: 1em;
+        font-weight:750;
+        line-height: 50px;
+        text-align: center;
+        text-decoration: none;
+        background-color:$darkgray;
+      }
+    }
+    &__vendor{
+      @include border-box;
+      padding: 30px 25% 50px 25%;
+      margin: 0 auto;
+      border-bottom:$border;
+      &__info{
+        h3{
+          @include buy-h3;
+        }
+        &--post_number{
+          font-size:0.8em;
+        }
+        &--address{
+          font-size:0.8em;
+        }
+        &--nickname{
+          font-size:0.8em;
+        }
+        &--none{
+          font-size:0.8em;
+        }
+      }
+      &__change{
+        height:10px;
+        padding-top:15px;
+        text-align:right;
+        a{
+          font-size:0.8em;
+          color:$linkblue;
+          text-decoration: none;
+        }
+      }
+    }
+    &__card{
+      @include border-box;
+      padding: 30px 25% 50px 25%;
+      margin: 0 auto;
+      &__info{
+        h3{
+          @include buy-h3;
+        }
+        &--last4{
+          font-size:0.8em;
+        }
+        &--exp{
+          font-size:0.8em;
+        }
+        &--brand{
+          img{
+            background-color: white;
+            height: 20px;
+            width: 50px;
+          }
+        }
+        &--none{
+          font-size:0.8em;
+        }
+      }
+      &__change{
+        height:10px;
+        padding-top:15px;
+        text-align:right;
+        a{
+          font-size:0.8em;
+          color:$linkblue;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

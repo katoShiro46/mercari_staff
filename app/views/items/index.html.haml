@@ -1,0 +1,33 @@
+= render partial:'shared/header'
+.items-index
+  .top-banner
+    .top-banner__img-area.slider_banner
+      =image_tag('banner-new-life.jpg')
+      =image_tag('banner-bokurano-heisei.jpg')
+  .pickup-container
+    %h1 ピックアップカテゴリー
+    =render partial:"items/new_items",collection: @pick_up_categories,as: :pick_up
+  .pickup-container
+    %h1 ピックアップブランド
+    =render partial:"items/new_items",collection: @pick_up_brands,as: :pick_up
+  .app-banner
+    .app-banner__area
+      .app-banner__area__inner
+        %h2 スマホでかんたんフリマアプリ
+        %p 今すぐ無料ダウンロード
+        .clearfix
+        .app-banner__area__inner__icon
+          .figure
+            %img{src:"//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?128691313"}
+          %ul
+            %li
+              %a
+                %img{src:"//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?128691313"}
+            %li
+              %a
+                %img{src:"//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?128691313"}
+      .figure-right
+        %img{src:"//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?128691313"}
+  .icon-camera
+    =link_to(image_tag("camera01.png"),new_item_path)
+= render partial:'shared/footer'

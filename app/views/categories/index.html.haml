@@ -1,0 +1,11 @@
+= render partial:'shared/header'
+.categories_index
+  .main-container
+    .list-block
+      .list-block__title カテゴリー一覧
+      -@l_categories.each do |category|
+        .list-block__menu{id:"#{category.id}"}=category.name
+  =render partial:'categories/l-container',collection:@l_categories,as: :l_category
+
+
+= render partial:'shared/footer'

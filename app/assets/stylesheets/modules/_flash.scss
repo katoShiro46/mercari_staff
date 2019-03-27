@@ -1,0 +1,20 @@
+.flash-notice{
+  position: absolute;
+  z-index: 1002;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  line-height: 40px;
+  background-color:$linkblue;
+  color:white;
+}
+.flash-alert{
+  position: absolute;
+  z-index: 1002;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  line-height: 40px;
+  background-color:$activered;
+  color:white;
+}

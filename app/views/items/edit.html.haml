@@ -1,0 +1,119 @@
+= render partial:'shared/subHeader'
+.item-new
+  .item-new-container
+    %h2 商品の情報を入力
+    = form_for @item do |f|
+      .post-image
+        .post-image-body
+          %h3 出品画像
+          %span 必須
+          %p 最大10枚までアップロードできます
+          .post-image-body-field{id: "drop-edit"}
+            .post-image-body-field-zone
+              = f.fields_for :item_images do |i|
+                %ul.sell-dropbox-items-edit
+                .sell-dropbox-uploader
+                  = i.label :image,class: "sell-dropbox-uploader-container" do
+                    - 10.times do |timesCount|
+                      = i.file_field :image,class: "item-images-edit hidden",id:"item-image-edit#{timesCount}",multiple: true,name: "[image][]",type: 'file'
+        .post-item-body
+          .post-item-body-title
+            %h3 商品名
+            %span 必須
+          = f.text_field :name ,placeholder: "商品名（必須 40文字まで)"
+          .post-item-body-description
+            %h3 商品名の説明
+            %span 必須
+          = f.text_area :description,placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",maxlength: "1000", class: "description"
+      .post-category
+        .post-category-body
+          .post-category-body__show
+            %p 商品の詳細
+          .post-category-body__select
+            .select
+              %h3 カテゴリー
+              %span 必須
+            .select-large-edit
+              = f.collection_select :category_id,@large, :id, :name,{prompt: "---"},{class: "large-category-edit"}
+            .select-middle-edit
+              = f.select :category_id, options_from_collection_for_select(@small.children, :id, :name, @middle.id), {class: "middle-category-edit"}
+            .select-small-edit
+              = f.select :category_id, options_from_collection_for_select(@middle.children, :id, :name, @category.id), {class: "small-category-edit"}
+            .select-size-edit
+              .select
+                %h3.size サイズ
+                %span 必須
+              = f.collection_select :size_id, Size.all, :id, :name,{prompt: "---"},{class: "size-select"}
+            .select-brand-edit
+              .select
+                %h3.brand ブランド
+                %span.optional 任意
+              = f.text_field :brand ,placehholder: "例）シャネル"
+            .select
+              %h3 商品の状態
+              %span 必須
+            = f.select :condition,Item.conditions.keys.map { |k| [Item.conditions_i18n[k], k]},prompt: "---"
+      .post-delivery
+        .post-delivery-body
+          .post-delivery-body__show
+            %p 配送について
+            = link_to "/" do
+              = fa_icon "question-circle"
+          .post-delivery-body__select
+            .select
+              %h3 配送料の負担
+              %span 必須
+            = f.select :shipping_fee,Item.shipping_fees.keys.map { |k| [Item.shipping_fees_i18n[k], k]},prompt: "---"
+            .select-shipping-method-edit
+              .select
+                %h3 配送の方法
+                %span 必須
+              = f.select :shipping_method,Item.shipping_methods.keys.map { |k| [Item.shipping_methods_i18n[k], k]},prompt: "---"
+            .select
+              %h3 発送元の地域
+              %span 必須
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---"
+            .select
+              %h3.shipping-date 発送までの日数
+              %span 必須
+            = f.select :shipping_date,Item.shipping_dates.keys.map { |k| [Item.shipping_dates_i18n[k], k]},prompt: "---"
+      .post-price
+        .post-price-body
+          .post-price-body__show
+            %p 販売価格
+            %p.integer (300〜9,999,999)
+            = link_to "/" do
+              = fa_icon "question-circle"
+          .post-price-body__select
+            %ul
+              %li.input
+                %h3 価格
+                %span 必須
+                .price-box
+                  .en ¥
+                  = f.text_field :price,placeholder: "例）３００",class: "sell-form-text_number"
+              %li.commission
+                %p.left 販売手数料 (10%)
+                %p.right -
+              %li.profits
+                %h3 販売利益
+                .profits-form -
+      .post-submit
+        .post-submit-text
+          %p
+            = link_to "禁止されている出品","/"
+            、
+            = link_to "行為","/"
+            を必ずご確認ください。
+          %p
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            = link_to "偽ブランドの販売", "/"
+            は犯罪であり処罰される可能性があります。
+          %p
+            また、出品をもちまして
+            = link_to "加盟店規約","/"
+            に同意したことになります。
+        = f.submit '変更する',class: "sell-btn"
+        %button.back-btn{type: "submit"} もどる
+= render partial:'shared/subFooter'
+= javascript_include_tag 'item_edit'

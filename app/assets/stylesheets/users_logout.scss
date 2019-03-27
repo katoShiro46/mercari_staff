@@ -1,0 +1,25 @@
+.my-container{
+  &-main{
+    &__center{
+      .logout{
+        box-sizing: border-box;
+        width: 700px;
+        height: 180px;
+        text-align: center;
+        background-color: white;
+        padding: 64px;
+        line-height: 52px;
+        vertical-align: middle;
+        .button{
+          font-size: 14px;
+          color: white;
+          display: inline-block;
+          background-color: #ea352d;
+          width: 320px;
+          height: 100%;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

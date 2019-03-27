@@ -1,0 +1,11 @@
+
+= render partial:'shared/header'
+.my-container
+  .my-container-main
+    .my-container-main__center
+      .logout
+        =link_to destroy_user_session_path , method: :delete, class: 'logout-button' do
+          %input.button{type: 'button',value: 'ログアウト'}
+    =render partial: 'users/shared/users_sidebar'
+= render partial: 'users/shared/users_bottom_banner'
+= render partial:'/shared/subFooter'

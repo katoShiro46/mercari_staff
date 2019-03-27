@@ -1,0 +1,126 @@
+.my-container-main__side
+  .my-container-main__side-list
+    %ul.mypage-lists
+      %li.action
+        = link_to users_path do
+          マイページ
+          %span
+            >
+      %li
+        = link_to '#' do
+          お知らせ
+          %span
+            >
+      %li
+        = link_to '#' do
+          やることリスト
+          %span
+            >
+      %li
+        = link_to '#' do
+          いいね！一覧
+          %span
+            >
+      %li
+        = link_to new_item_path do
+          出品する
+          %span
+            >
+      %li
+        = link_to '#' do
+          出品した商品-出品中
+          %span
+            >
+      %li
+        = link_to '#' do
+          出品した商品-取引中
+          %span
+            >
+      %li
+        = link_to '#' do
+          出品した商品-売却済み
+          %span
+            >
+      %li
+        = link_to '#' do
+          購入した商品-取引中
+          %span
+            >
+      %li
+        = link_to '#' do
+          購入した商品-過去の取引
+          %span
+            >
+      %li
+        = link_to '#' do
+          ニュース一覧
+          %span
+            >
+      %li
+        = link_to '#' do
+          評価一覧
+          %span
+            >
+      %li
+        = link_to '#' do
+          ガイド
+          %span
+            >
+      %li
+        = link_to '#' do
+          お問い合わせ
+          %span
+            >
+    %h3 メルペイ
+    %ul.merpay-lists
+      %li
+        = link_to '#' do
+          売上・振込申請
+          %span
+            >
+      %li
+        = link_to '#' do
+          ポイント
+          %span
+            >
+    %h3 設定
+    %ul.mypage-setting-lists
+      %li
+        = link_to edit_user_path(current_user) do
+          プロフィール
+          %span
+            >
+      %li
+        = link_to  edit_vendor_path do
+          発送元・お届け先住所変更
+          %span
+            >
+      %li
+        = link_to new_card_path do
+          支払い方法
+          %span
+            >
+      %li
+        = link_to '#' do
+          メール/パスワード
+          %span
+            >
+      %li
+        = link_to edit_street_address_path do
+          本人情報
+          %span
+            >
+      %li
+        = link_to '#' do
+          電話番号の確認
+          %span
+            >
+      %li
+        = link_to logout_users_path do
+          ログアウト
+          %span
+            >
+.icon-camera
+  .icon-camera__box
+    =link_to(image_tag("camera01.png"),new_item_path)
+

@@ -1,0 +1,58 @@
+= render partial:'shared/header'
+.my-container
+  .my-container-main
+    .my-container-main__center
+      .edit
+        .edit-info
+          .edit-info__header
+            %h3 本人情報の登録
+          .edit-info__content
+            %p.up
+              お客さまの本人情報をご登録ください。
+              %br
+              登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+            = link_to '本人確認書類のアップロードについて＞','#'
+            = form_for @street_address, url: street_address_path do |f|
+              = label :family_name, 'お名前'
+              %p
+                = user_name
+              = label :family_name, 'お名前（カナ）'
+              %p
+                = user_name_phonetic
+              = label :family_name, '生年月日'
+              %p
+                = user_birth
+
+              =f.label :post_number, '郵便番号( \' - \'は不要です )'
+              %span 必須
+              %br
+              =f.text_field :post_number,placeholder: ''
+              %br
+              =f.label :prefecture_id, '都道府県'
+              %span 必須
+              %br
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '--'
+              %br
+              =f.label :city, '市町村'
+              %span 必須
+              %br
+              =f.text_field :city,placeholder: ''
+              %br
+              =f.label :address, '番地'
+              %span 必須
+              %br
+              =f.text_field :address,placeholder: ''
+              %br
+              =f.label :building_name, '建物'
+              %span.gray 任意
+              %br
+              =f.text_field :building_name, placeholder: ''
+              %span 任意
+              %br
+              = text_field :user, :family_name,placeholder: ''
+              %br
+              = submit_tag '次へ進む'
+            = link_to '本人情報の登録について>','#'
+    = render partial: 'users/shared/users_sidebar'
+= render partial: 'users/shared/users_bottom_banner'
+= render partial: 'shared/footer'

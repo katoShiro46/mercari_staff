@@ -1,0 +1,19 @@
+.category-container
+  .category-container__title{link_id:"#{l_category.id}"}
+    =l_category.name
+  .category-container__content
+    .category-container__content__all
+      =link_to("すべて",category_path(l_category.id))
+    -children_category_define(l_category)
+    -@children_categories.each do |m_category|
+      .category-container__content__middle
+        .m_title
+          =m_category.name
+        .m_menu
+          =link_to("すべて",category_path(m_category.id))
+          -children_category_define(m_category)
+          -@children_categories.each do |s_category|
+            =link_to(s_category.name,category_path(s_category.id))
+      .clearfix
+
+

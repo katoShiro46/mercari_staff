@@ -1,0 +1,24 @@
+
+.sign-in
+  .sign-in-main
+    .sign-in-main__header
+      = link_to root_path do
+        = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2855175014")
+    .sign-in-main__top
+      %h6.api-head
+        新規会員登録
+    .sign-in-main__api
+      =link_to new_user_registration_path do
+        .email.link-registration
+          メールアドレスで登録
+      =link_to '/users/auth/facebook' do
+        .facebook
+          =fa_icon('facebook')
+          %span
+            Facebookで登録
+      = link_to '/users/auth/google_oauth2' do
+        .google
+          =fa_icon('google')
+          %span
+            Googleで登録
+= render partial:'/shared/subFooter'

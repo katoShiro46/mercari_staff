@@ -1,0 +1,39 @@
+
+.session
+  .session-main
+    .session-main__header
+      = link_to root_path do
+        = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2855175014")
+    .session-main__api
+      .api-head
+        %h6
+          アカウントをお持ちの方はこちら
+        = link_to  register_user_top_users_path do
+          .link-registration
+            新規会員登録
+      = link_to '/users/auth/facebook' do
+        .facebook
+          =fa_icon('facebook')
+          %span
+            Facebookでログイン
+      = link_to '/users/auth/google_oauth2' do
+        .google
+          = fa_icon('google')
+          %span
+            Googleでログイン
+    .session-main__form
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field
+
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'メールアドレス'
+        .field
+
+          %br/
+          = f.password_field :password, autocomplete: "current-password",placeholder: 'パスワード'
+        #checkmark
+          = fa_icon('square')
+          私はロボットではありません
+        = link_to 'パスワードをお忘れの方', 'users/shared/links'
+        = submit_tag 'ログイン '
+= render partial:'/shared/subFooter'

@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Mercari
+    = csrf_meta_tags
+    = include_gon
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
+    = javascript_include_tag 'https://js.pay.jp', 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = yield

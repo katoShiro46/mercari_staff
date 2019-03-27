@@ -1,0 +1,183 @@
+.items-index{
+  // ------共通部分を定義----------
+  *{
+    box-sizing: border-box;
+  }
+  h1{
+    text-align:center;
+    font-size: 28px;
+  }
+  h2{
+    line-height: 1.4;
+    text-align:center;
+  }
+  a{
+    text-align:center;
+    color:#0099e8;
+    text-decoration: none;
+  }
+  .clearfix{
+    clear:both;
+  }
+  // バナースライド機能の表示設定
+  .slick-prev{
+    left:50px;
+    z-index:1;
+  }
+  .slick-next{
+    right:50px;
+    z-index:1;
+  }
+  .slick-dots{
+    bottom:15px;
+    margin-bottom:0px;
+  }
+  //----------------------------
+  background-color:#fff;
+  display:block;
+  .top-banner{
+    &__img-area{
+      height:390px;
+      &__angle{
+        height:90%;
+        padding:0 100px;
+        .fa{
+          color:white;
+          font-size: 100px;
+          width:50%;
+          line-height: 360px;
+          transform:translateY(15px);
+        }
+        .fa-angle-left{
+          float:left;
+        }
+        .fa-angle-right{
+          text-align:right;
+        }
+      }
+      &__page{
+        .circle-box{
+          text-align:center;
+          .fa{
+            margin:0 10px;
+            z-index:1001;
+          }
+        }
+      }
+    }
+  }
+
+  .pickup-container{
+    background:#f5f5f5;
+    padding:40px 0 0 0;
+    &__category-box{
+      width:940px;
+      margin:0 auto;
+      .pickup-title{
+        a{
+          margin:26px 11px;
+          font-size:22px;
+          display:block;
+        }
+      }
+      &__item-box{
+        margin:0 auto;
+        .card{
+          a{
+            color:#333;
+          }
+          float:left;
+          width: 213px;
+          margin:0 0 0 20px;
+        }
+      }
+      &__view-all{
+        padding:20px 0 30px;
+        width: 99.5%;
+        a{
+          float:right;
+          margin:0 0;
+          font-size:14px;
+          text-align:right;
+        }
+      }
+    }
+  }
+
+
+  .app-banner{
+    background:url(https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?52584816);
+    &__area{
+      overflow: hidden;
+      position: relative;
+      width: 750px;
+      height:260px;
+      margin: 0 auto;
+      color:#fff;
+      &__inner{
+        left:0;
+        position:absolute;
+        top:50%;
+        transform:translate(0,-50%);
+        h2{
+          font-size: 24px;
+          text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        }
+        p{
+          font-size: 35px;
+          text-shadow: 0 0 5px rgba(0,0,0,0.4);
+          margin:10px 0 0;
+        }
+        &__icon{
+          margin:20px 0 0 0;
+          .figure{
+            float:left;
+            img{
+              vertical-align: middle;
+              max-width: 68px;
+            }
+          }
+          ul{
+            margin:0 0 0 24px;
+            line-height: 68px;
+            li{
+              float:left;
+              margin:0 16px 0 0;
+              a{
+                line-height: 68px;
+                img{
+                  vertical-align: middle;
+
+                }
+              }
+            }
+          }
+        }
+      }
+      .figure-right{
+        position:absolute;
+        top:0;
+        right:0;
+        bottom:0;
+        width:300px;
+        height:100%;
+        img{
+          width:100%;
+        }
+      }
+    }
+  }
+  .icon-camera{
+    position: fixed;
+    bottom:32px;
+    right: 32px;
+    display: inline-block;
+    a{
+      img{
+        border-radius: 80px;
+        height: 160px;
+        width: 160px;
+      }
+    }
+  }
+}

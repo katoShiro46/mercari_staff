@@ -1,0 +1,68 @@
+= render partial:'shared/header'
+.my-container
+  .my-container-main
+    .my-container-main__center
+      %a.icon-link{ href: "#"}
+        .mypage-user-icon
+          = image_tag("member_photo_noimage.png")
+          %h2
+            = user_name
+          .my-number
+            .my-number__review
+              評価
+              %span 0
+            .my-number__item
+              出品数
+              %span 1
+      .mypage-user-tab
+        .mypage-user-tab__header
+          %ul
+            %li.note お知らせ
+            %li.todo.action やることリスト
+        .mypage-user-tab__notification
+          %ul
+            %li
+              %span
+                = image_tag("mercari_profile.png")
+            %li
+              %span
+                = image_tag("mercari_profile.png")
+            %li
+              %span
+                = image_tag("mercari_profile.png")
+            %li.last
+              = link_to '#' do
+                一覧を見る
+        .mypage-user-tab__todo
+          %ul
+            %li
+              %span
+                = image_tag('mercari_profile.png')
+              発送しよう
+            %li
+              %span
+                = image_tag('mercari_profile.png')
+              レビューしよう
+
+      .mypage-user-banner
+      .mypage-user-trade
+        .mypage-user-trade__header
+          %ul
+            %li.now 取引中
+            %li.past.action 過去の取引
+        .mypage-user-trade__content
+          .trading-now
+            %ul
+              %li
+                %span
+                  = image_tag('mercari_profile.png')
+                item1
+          .trading-past
+            %ul
+              %li
+                %span
+                  = image_tag('mercari_profile.png')
+                item2
+    = render partial: 'users/shared/users_sidebar'
+= render partial: 'users/shared/users_bottom_banner'
+= render partial:'/shared/subFooter'

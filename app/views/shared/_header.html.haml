@@ -1,0 +1,113 @@
+.items-header
+  .inner
+    .pc-header-search-box
+      %h1.l-left
+        =link_to(image_tag("logo.svg"),root_path)
+      = form_tag(search_items_path, class: "pc-header-form l-right",method: 'get') do
+        = text_field_tag :search,"",class: "input-default",name: "keyword", placeholder: "キーワードから探す", type: "search", value: ""
+        = button_tag type: "submit",name: nil,class: "icon-search" do
+          = fa_icon "search"
+    .pc-header-nav-box
+      %nav.l-left
+        %ul.pc-header-nav
+          %li.switch
+            =link_to("カテゴリーから探す",categories_path,class:'pc-header-nav-root')
+            %ul.large-category-wrap
+              -@categories.each do |l_category|
+                %li.large-category.hover_red
+                  =link_to(l_category.name,category_path(l_category.id))
+                  %ul.middle-category-wrap
+                    -children_category_define(l_category)
+                    -@categories.each do |m_category|
+                      %li.middle-category.hover_grey
+                        =link_to(m_category.name,category_path(m_category.id))
+                        %ul.small-category-wrap
+                          -children_category_define(m_category)
+                          -@categories.each do |s_category|
+                            %li.small-category.hover_grey
+                              =link_to(s_category.name,category_path(s_category.id))
+
+          %li.switch
+            =link_to("ブランドから探す","",class:"pc-header-nav-root")
+            %ul.large-category-wrap
+              -@pick_up_brands.each do |brand|
+                %li.large-category.hover_red
+                  =link_to(brand.name,"/")
+              %li.large-category.hover_red
+                =link_to("ブランド一覧","/")
+      -if user_signed_in?
+        .l-right
+          %ul.pc-header-user-nav
+            %li.switch
+              =link_to(image_tag(current_user.icon,class:'user-icon'),users_path,class:"pc-header-nav-root")
+              .mypage-title マイページ
+              .mypage-box
+                .pc-header-mypage-state.text-center
+                  .user-background
+                    .user-icon
+                      =image_tag(current_user.icon)
+                    .user-name
+                      =current_user.nickname
+                  %ul.pc-header-mypage-review-listing
+                    %li
+                      =link_to("評価: #{0}","#")
+                    %li
+                      =link_to("出品数: #{0}","#")
+                  %ul.pc-header-mypage-sales-point
+                    %li
+                      %a{href: "#"}
+                        .l-left 売上金
+                        .l-right
+                          ¥ 0
+                          =fa_icon('angle-right')
+                    .clearfix
+                    %li
+                      %a{href: "#"}
+                        .l-left ポイント
+                        .l-right
+                          P 0
+                          =fa_icon('angle-right')
+                %ul.mypage-nav-list
+                  %li
+                    %a.mypage-nav-list-item{href: "#"}
+                      いいね！一覧
+                      =fa_icon('angle-right')
+                  %li
+                    %a.mypage-nav-list-item{href: "#"}
+                      出品した商品 - 出品中
+                      =fa_icon('angle-right')
+                  %li
+                    %a.mypage-nav-list-item{href: "#"}
+                      出品した商品 - 取引中
+                      =fa_icon('angle-right')
+                  %li
+                    %a.mypage-nav-list-item{href: "#"}
+                      出品した商品 - 売却済み
+                      =fa_icon('angle-right')
+                  %li
+                    %a.mypage-nav-list-item{href: "#"}
+                      購入した商品 - 取引中
+                      =fa_icon('angle-right')
+                  %li
+                    %a.mypage-nav-list-item{href: "#"}
+                      購入した商品 - 過去の取引
+                      =fa_icon('angle-right')
+            %li{"data-id" => "pc-header-user-nav", "data-key" => "notification_list", "data-url" => "#"}
+              %a.pc-header-nav-root{"data-url" => "#", href: "#"}
+                =fa_icon("bell-o",class:'icon-bell')
+                %span お知らせ
+              %ul.pc-header-user-box.pc-header-notification-box.mypage-item-list{"data-id" => "pc-header-user-items"}
+            %li{"data-id" => "pc-header-user-nav", "data-key" => "todo_list", "data-url" => "#"}
+              %a.pc-header-nav-root{"data-url" => "#", href: "#"}
+                =fa_icon("check",class:'icon-check')
+                %span やることリスト
+              %ul.pc-header-user-box.pc-header-todo-box.mypage-item-list{"data-id" => "pc-header-user-items"}
+      -else
+        .l-right_not-login
+          .new-user-button=link_to("新規会員登録",register_user_top_users_path)
+          .login-button=link_to("ログイン",new_user_session_path)
+.bread-crumbs
+  .bread-crumbs__main
+    = render_breadcrumbs separator: ' > '
+- flash.each do |key, value|
+  = content_tag(:div, value, class: "flash flash-#{key}")

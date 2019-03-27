@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        id: ID
+        created_at: 登録日時
+        updated_at: 更新日時
+        birthday: 生年月日
+        email: メールアドレス
+        salon_id: サロン
+        password: パスワード
+      vendor:
+        family_name: 姓
+        first_name: 名
+        prefecture_id: 都道府県
+        city: 市・町・村
+        address: 番地
+        post_number: 郵便番号
+

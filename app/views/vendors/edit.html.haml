@@ -1,0 +1,60 @@
+= render partial:'shared/header'
+.my-container
+  .my-container-main
+    .my-container-main__center
+      .shipping
+        .shipping-main
+          .shipping-main__header
+            %h2
+              発送元・お届け住所変更
+          .shipping-main__content
+            = form_for @vendor,url: vendor_path do |f|
+              %br
+              =f.label :family_name, 'お名前'
+              %span 必須
+              %br
+              =f.text_field :family_name,placeholder: '山田'
+              %br
+              =f.text_field :first_name,placeholder: '彩'
+              %br
+              =f.label :family_name_phonetic, 'お名前（カナ）'
+              %span 必須
+              %br
+              =f.text_field :family_name_phonetic,placeholder: 'ヤマダ'
+              %br
+              =f.text_field :first_name_phonetic,placeholder: 'アヤ'
+              %br
+              =f.label :post_number, '郵便番号( \' - \'は不要です )'
+              %span 必須
+              %br
+              =f.text_field :post_number,placeholder: ''
+              %br
+              =f.label :prefecture_id, '都道府県'
+              %span 必須
+              %br
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '--'
+              %br
+              =f.label :city, '市町村'
+              %span 必須
+              %br
+              =f.text_field :city,placeholder: ''
+              %br
+              =f.label :address, '番地'
+              %span 必須
+              %br
+              =f.text_field :address,placeholder: ''
+              %br
+              =f.label :building_name, '建物'
+              %span.gray 任意
+              %br
+              =f.text_field :building_name, placeholder: ''
+              %br
+              =label :telephone, '電話番号'
+              %span.gray 任意
+              %br
+              =telephone_field :telephone,placeholder: ''
+              %br
+              =f.submit '変更する'
+    = render partial: 'users/shared/users_sidebar'
+= render partial: 'users/shared/users_bottom_banner'
+= render partial: 'shared/footer'

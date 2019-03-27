@@ -1,0 +1,54 @@
+footer{
+  text-align: center;
+  padding:60px 0;
+  background-color: #212121;
+  color:#fff;
+  a{
+    font-size:14px;
+  }
+
+  nav{
+    width:60%;
+    margin:0 auto;
+    ul{
+      padding:0px;
+      list-style:none;
+      .download-app{
+        display: none;
+        a{
+          img{
+            width:35px;
+          }
+        }
+      }
+      .footer-cell{
+        display:inline-block;
+        width: 23%;
+        magin: 0 2% 0 0;
+        vertical-align: top;
+        &__footer-head{
+          font-size: 16px;
+        }
+        ul{
+          li{
+            margin:16px 0 0 0;
+            a{
+              line-height: 14px;
+              color:#fff;
+              text-decoration:none;
+              img{
+                width: 22px
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .footer-logo{
+    margin:0 auto;
+    width:124px;
+    display:block;
+    margin-top:20px;
+  }
+}
