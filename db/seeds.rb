@@ -83,7 +83,8 @@ CSV.foreach('db/csv/users.csv',external_encoding: "Shift_JIS",internal_encoding:
     reset_password_sent_at:row[16],
     remember_created_at:row[17],
     created_at:row[18],
-    updated_at:row[19]
+    updated_at:row[19],
+    staff_authority:row[21],
 )
 end
 

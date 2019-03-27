@@ -38,6 +38,9 @@
       -if user_signed_in?
         .l-right
           %ul.pc-header-user-nav
+            -if current_user.staff_authority = 1
+              %li.staff
+                =link_to("スタッフメニュー",staffs_path,class:'staff_button')
             %li.switch
               =link_to(image_tag(current_user.icon,class:'user-icon'),users_path,class:"pc-header-nav-root")
               .mypage-title マイページ
