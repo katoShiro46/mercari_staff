@@ -26,6 +26,12 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  resources :categories, only: [:index,:show]
+  resources :categories, only: [:index,:show,:edit,:update]
+  resources :staffs,only: :index do
+    collection do
+      resources :categories, only: [:new,:delete]
+      get 'categoties/edit_list' => 'categories#edit_list'
+    end
+  end
   root 'items#index'
 end

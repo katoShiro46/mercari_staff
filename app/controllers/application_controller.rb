@@ -47,4 +47,10 @@ private
     Rails.env.production?
   end
 
+  def staff?
+    unless user_signed_in? && current_user.staff_authority = 1
+      redirect_to root_path
+    end
+  end
+
 end

@@ -1,0 +1,12 @@
+= render partial:'shared/header'
+.categories_index
+  .main-container
+    .list-block
+      .list-block__title カテゴリー一覧
+      -@l_categories.each do |category|
+        =form_for(category) do |f|
+          =f.check_box :pick_up
+          .list-block__menu{id:"#{category.id}"}=category.name
+          =f.submit class:'button',value:'ピックアップに選択する'
+  =render partial:'categories/l-container_edit',collection:@l_categories,as: :l_category
+= render partial:'shared/footer'
