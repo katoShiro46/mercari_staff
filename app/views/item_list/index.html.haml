@@ -1,7 +1,7 @@
 = render partial:'shared/header'
 .item-list_index
   .export-button
-    ="Excelに出力"
+    =link_to("Excelに出力",item_list_export_path(format: :xlsx))
   %table
     %tr
       %th="番号"
@@ -38,6 +38,5 @@
         %th=item.category.name
         %th=item.vendor.user.nickname
         %th=item.created_at
-
 
 = render partial:'shared/footer'
