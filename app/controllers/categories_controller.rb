@@ -18,7 +18,20 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    Category.find(params[:id]).update(category_params)
+    redirect_to categoties_edit_list_staffs_path
+  end
+
   def edit_list
     @l_categories = Category.roots
+  end
+
+  private
+  def category_params
+    params.require(:category).permit(:pick_up)
   end
 end

@@ -4,6 +4,7 @@
   .content__title="ユーザー用画面表示の編集"
   = link_to("ピックアップの編集",categoties_edit_list_staffs_path)
   = link_to("カテゴリーの追加",staffs_path)
+
   = link_to("お知らせ発信",staffs_path)
 .content
   .content__title="ユーザー編集"
@@ -14,6 +15,8 @@
   = link_to("商品分析",staffs_path)
   = link_to("売り上げ管理",staffs_path)
   = link_to("ユーザー分析",staffs_path)
-
+.conotent
+  .content__title="スタッフ"
+  = link_to("スタッフの追加",staffs_path)
 
 = render partial:'shared/footer'
