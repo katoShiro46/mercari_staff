@@ -33,5 +33,8 @@ Rails.application.routes.draw do
       get 'categoties/edit_list' => 'categories#edit_list'
     end
   end
+  resources :item_list,only: [:index]
+  get  'item_list/search' => 'item_list#search'
+  post 'item_list/export' => 'item_list#export'
   root 'items#index'
 end
