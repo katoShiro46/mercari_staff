@@ -1,0 +1,42 @@
+= render partial:'shared/header'
+.item-list_index
+  .export-button
+    =link_to("Excelに出力",item_list_export_path(format: :xlsx))
+  %table
+    %tr
+      %th="番号"
+      %th="商品名"
+      %th="商品説明文"
+      %th="価格"
+      %th="状態"
+      %th="送付方法"
+      %th="送付日時"
+      %th="費用負担"
+      %th="県"
+      %th="ブランド"
+      %th="サイズ"
+      %th="大カテゴリー名"
+      %th="中カテゴリー名"
+      %th="小カテゴリー名"
+      %th="出品者"
+      %th="出品日時"
+    -@items.each do |item|
+      %tr
+        %th=link_to(item.id,item_path(item.id))
+        %th=item.name
+        %th=item.description
+        %th=item.price
+        %th=item.condition
+        %th=item.shipping_method
+        %th=item.shipping_date
+        %th=item.shipping_fee
+        %th=item.prefecture.name
+        %th=item.brand
+        %th=item.size.name
+        %th=item.category.root.name
+        %th=item.category.parent.name
+        %th=item.category.name
+        %th=item.vendor.user.nickname
+        %th=item.created_at
+
+= render partial:'shared/footer'
