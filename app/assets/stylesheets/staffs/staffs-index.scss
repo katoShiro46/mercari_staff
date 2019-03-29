@@ -1,0 +1,25 @@
+.staffs-index{
+  .content{
+    a{
+      text-decoration:none;
+      color:#0099e8;
+    }
+    &__title{
+      margin:20px 0 10px 0;
+    }
+    .implemented{
+      margin:0 0 0 20px;
+
+    }
+    .not_implemented{
+      margin:0 0 0 20px;
+      text-decoration: line-through;
+      a{
+        color:black;
+      }
+    }
+    .not_implemented:after{
+      content:"(Comming soon)";
+    }
+  }
+}
