@@ -2,7 +2,6 @@ set :output, "/Users/shiro/Excel/crontab.log"
 set :environment, :development
 
 every 1.minutes do
-  command "echo 'hello,whenever world!!!'"
   rake 'excel:items'
 end
 
