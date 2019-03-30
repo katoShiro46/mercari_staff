@@ -4,11 +4,19 @@
     =link_to("カテゴリーごと","")
     =link_to("ユーザーごと","")
     =link_to("ブランドごと","")
-  .graph-area
-  -@l_categories.each do |category|
-    .item-title
-      =category.name
-    .item-count
-      =item_count(category)
+  .list
+    =link_to("出品個数","")
+    =link_to("出品金額","")
+  -# .conditions
+  -#   .conditions__period
+  -#     .conditions__period__start
+  -#       ="開始日時"
+  -#       =input_tag()
+  -#     .conditions__period__end
+  -#       ="終了日時"
   %canvas#myChart{:height => "400", :width => "900"}
+  .graph-area
+  -@select_categories.each do |category|
+    .item-title
+      =link_to(category.name,analysis_search_path(category:category),class:'graph',id:category.id)
 = render partial:'shared/footer'

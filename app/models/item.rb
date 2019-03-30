@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   belongs_to :vendor
   belongs_to_active_hash :prefecture
   # belongs_to :brand
-  belongs_to :size
+  belongs_to :size, optional: true
   belongs_to :category
   has_many :item_images,dependent: :destroy
   accepts_nested_attributes_for :item_images
@@ -18,7 +18,6 @@ class Item < ApplicationRecord
   validates :shipping_date, presence: true
   validates :shipping_method, presence: true
   validates :prefecture_id, presence: true
-  validates :size_id, presence: true
   validates :category_id, presence: true
 
   enum condition:{

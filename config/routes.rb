@@ -37,5 +37,6 @@ Rails.application.routes.draw do
   get  'item_list/search'    => 'item_list#search'
   get  'item_list/export'    => 'item_list#export'
   resources :analysis,only: :index
+  get  'analysis/search'     => 'analysis#search'
   root 'items#index'
 end
