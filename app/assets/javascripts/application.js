@@ -26,3 +26,5 @@
 //= require slick.min.js
 //= require items_show
 //= require categories_search
+//= require Chart.min
+//= require analysis_index
