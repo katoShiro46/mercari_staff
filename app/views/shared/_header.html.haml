@@ -38,7 +38,7 @@
       -if user_signed_in?
         .l-right
           %ul.pc-header-user-nav
-            -if current_user.staff_authority = 1
+            -if current_user.staff_authority
               %li.staff
                 =link_to("スタッフメニュー",staffs_path,class:'staff_button')
             %li.switch
