@@ -1,26 +1,41 @@
 = render partial:'shared/header'
-
-.conotent
-  .content__title="ユーザー用画面表示の編集"
-  = link_to("ピックアップの編集",categoties_edit_list_staffs_path)
-  = link_to("カテゴリーの追加",staffs_path)
-
-  = link_to("お知らせ発信",staffs_path)
-.content
-  .content__title="ユーザー編集"
-  = link_to("顧客情報の確認",staffs_path)
-  = link_to("顧客情報の編集",staffs_path)
-.content
-  .content__title="商品編集"
-  = link_to("商品確認",item_list_index_path)
-  = link_to("顧客情報の編集",staffs_path)
-.conotent
-  .content__title="分析"
-  = link_to("商品分析",staffs_path)
-  = link_to("売り上げ管理",staffs_path)
-  = link_to("ユーザー分析",staffs_path)
-.conotent
-  .content__title="スタッフ"
-  = link_to("スタッフの追加",staffs_path)
+.staffs-index
+  .content
+    .content__title
+      ="ユーザー用画面表示の編集"
+    .implemented
+      = link_to("ピックアップの編集",categoties_edit_list_staffs_path)
+    .not_implemented
+      = link_to("カテゴリーの追加",staffs_path)
+    .not_implemented
+      = link_to("お知らせ発信",staffs_path)
+  .content
+    .content__title
+      ="ユーザー編集"
+    .not_implemented
+      = link_to("顧客情報の確認",staffs_path)
+    .not_implemented
+      = link_to("顧客情報の編集",staffs_path)
+  .content
+    .content__title
+      ="商品編集"
+    .implemented
+      = link_to("商品確認",item_list_index_path)
+    .not_implemented
+      = link_to("顧客情報の編集",staffs_path)
+  .content
+    .content__title
+      ="分析"
+    .not_implemented
+      = link_to("商品分析",staffs_path)
+    .not_implemented
+      = link_to("売り上げ管理",staffs_path)
+    .not_implemented
+      = link_to("ユーザー分析",staffs_path)
+  .content
+    .content__title
+      ="スタッフ"
+    .not_implemented
+      = link_to("スタッフの追加",staffs_path)
 
 = render partial:'shared/footer'
