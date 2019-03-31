@@ -1,7 +1,7 @@
 set :output, "/Users/shiro/Excel/crontab.log"
 set :environment, :development
 
-every 1.minutes do
+every 1.days do
   rake 'excel:items'
 end
 

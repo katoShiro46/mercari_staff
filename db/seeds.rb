@@ -22,44 +22,44 @@ Item.all.delete_all
 Size.all.delete_all
 Vendor.all.delete_all
 User.all.delete_all
-Category.delete_all
-SizeType.all.destroy_all
-Brand.destroy_all
+# Category.delete_all
+# SizeType.all.destroy_all
+# Brand.destroy_all
 
-puts "ブランドテーブルを入力中・・・"
-CSV.foreach('db/csv/brands.csv') do |row|
-  Brand.create(
-    id:row[0],
-    name:row[1],
-    created_at:row[2],
-    updated_at:row[3],
-    pick_up:row[4]
-  )
-end
+# puts "ブランドテーブルを入力中・・・"
+# CSV.foreach('db/csv/brands.csv') do |row|
+#   Brand.create(
+#     id:row[0],
+#     name:row[1],
+#     created_at:row[2],
+#     updated_at:row[3],
+#     pick_up:row[4]
+#   )
+# end
 
-puts "サイズタイプテーブルを入力中・・・"
-CSV.foreach('db/csv/size_type.csv',external_encoding: "Shift_JIS",internal_encoding: "utf-8") do |row|
-  SizeType.create(
-    id:row[0],
-    name:row[1],
-    created_at:row[2],
-    updated_at:row[3]
-    )
-end
-SizeType.create(id:100,name:"サイズ選択ないものは全てこちら",created_at:"2019/3/3 8:19",updated_at:"2019/3/3 8:19")
+# puts "サイズタイプテーブルを入力中・・・"
+# CSV.foreach('db/csv/size_type.csv',external_encoding: "Shift_JIS",internal_encoding: "utf-8") do |row|
+#   SizeType.create(
+#     id:row[0],
+#     name:row[1],
+#     created_at:row[2],
+#     updated_at:row[3]
+#     )
+# end
+# SizeType.create(id:100,name:"サイズ選択ないものは全てこちら",created_at:"2019/3/3 8:19",updated_at:"2019/3/3 8:19")
 
-puts "カテゴリーテーブルを入力中・・・"
-CSV.foreach('db/csv/categories.csv',external_encoding: "Shift_JIS",internal_encoding: "utf-8") do |row|
-  category = Category.create(
-    id:row[0],
-    name:row[1],
-    ancestry:row[2],
-    size_type_id:row[3],
-    created_at:row[4],
-    updated_at:row[5],
-    pick_up:row[6]
-  )
-end
+# puts "カテゴリーテーブルを入力中・・・"
+# CSV.foreach('db/csv/categories.csv',external_encoding: "Shift_JIS",internal_encoding: "utf-8") do |row|
+#   category = Category.create(
+#     id:row[0],
+#     name:row[1],
+#     ancestry:row[2],
+#     size_type_id:row[3],
+#     created_at:row[4],
+#     updated_at:row[5],
+#     pick_up:row[6]
+#   )
+# end
 
 
 puts "ユーザーテーブルを入力中・・・"
