@@ -17,7 +17,7 @@ set :default_env, {
   PAYJP_SK_TEST: ENV["PAYJP_SK_TEST"]
 }
 
-set :linked_files, %w{ config/secrets.yml }
+# set :linked_files, %w{ config/secrets.yml }
 
 
 set :rbenv_type, :user
