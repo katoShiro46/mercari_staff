@@ -1,8 +1,8 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
-set :application, "mercari"
-set :repo_url, "git@github.com:ma-kun92/mercari.git"
+set :application, "mercari_staff"
+set :repo_url, "git@github.com:katoShiro46/mercari_staff.git"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
@@ -17,7 +17,7 @@ set :default_env, {
   PAYJP_SK_TEST: ENV["PAYJP_SK_TEST"]
 }
 
-# set :linked_files, %w{ config/secrets.yml }
+set :linked_files, %w{ config/secrets.yml }
 
 
 set :rbenv_type, :user
@@ -26,7 +26,7 @@ set :rbenv_ruby, '2.3.1'
 
 
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/tech45.pem']
+                  keys: ['~/.ssh/key_pair.pem']
 
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
