@@ -1,9 +1,12 @@
 = render partial:'shared/header'
 .item-list_index
   .export-button
-    =form_tag "item_list/export.xlsx",method:"get" do
-      =file_field_tag :export_file
-      =submit_tag
+    -# 任意の場所に保存できるように改良する
+    -# =form_tag "item_list/export.xlsx",method:"get" do
+    -#   =file_field_tag :export_file
+    -#   =submit_tag
+
+    =link_to("Excelデータを出力",item_list_export_path(format: :xlsx))
   %table
     %tr
       %th="番号"
