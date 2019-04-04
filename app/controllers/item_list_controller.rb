@@ -42,13 +42,10 @@ class ItemListController < ApplicationController
       # worksheet.add_cell(num,16,item.updated_at)
       num += 1
     end
-    binding.pry
     respond_to do |format|
       format.html
-      format.xlsx do
-        workbook.write("/Users/shiro/Excel/item#{Time.now}.xlsx")
-        # workbook.write("/Users/shiro/Excel/item#{Time.now}.xlsx")
-      end
+      # 任意の場所に保存できるように改良する
+      format.xlsx {send_data workbook.stream.string,filename:"item_lists#{Time.now}.xlsx"}
     end
   end
 end
