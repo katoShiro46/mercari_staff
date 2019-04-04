@@ -1,7 +1,9 @@
 = render partial:'shared/header'
 .item-list_index
   .export-button
-    =link_to("Excelに出力",item_list_export_path(format: :xlsx))
+    =form_tag "item_list/export.xlsx",method:"get" do
+      =file_field_tag :export_file
+      =submit_tag
   %table
     %tr
       %th="番号"
@@ -31,8 +33,8 @@
         %th=item.shipping_date
         %th=item.shipping_fee
         %th=item.prefecture.name
-        %th=item.brand
-        %th=item.size.name
+        %th=item.brand              unless item.brand.nil?
+        %th=item.size.name          unless item.size.nil?
         %th=item.category.root.name
         %th=item.category.parent.name
         %th=item.category.name

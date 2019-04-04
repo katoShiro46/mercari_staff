@@ -31,8 +31,8 @@ class ItemListController < ApplicationController
       worksheet.add_cell(num,6,item.shipping_date)
       worksheet.add_cell(num,7,item.shipping_fee)
       worksheet.add_cell(num,8,item.prefecture.name)
-      worksheet.add_cell(num,9,item.brand)
-      worksheet.add_cell(num,10,item.size.name)
+      worksheet.add_cell(num,9,item.brand) unless item.brand.nil?
+      worksheet.add_cell(num,10,item.size.name) unless item.size.nil?
       worksheet.add_cell(num,11,item.category.root.name)
       worksheet.add_cell(num,12,item.category.parent.name)
       worksheet.add_cell(num,13,item.category.name)
@@ -42,10 +42,12 @@ class ItemListController < ApplicationController
       # worksheet.add_cell(num,16,item.updated_at)
       num += 1
     end
+    binding.pry
     respond_to do |format|
       format.html
       format.xlsx do
         workbook.write("/Users/shiro/Excel/item#{Time.now}.xlsx")
+        # workbook.write("/Users/shiro/Excel/item#{Time.now}.xlsx")
       end
     end
   end
