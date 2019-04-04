@@ -1,0 +1,34 @@
+.analysis_index{
+  padding: 20px 0 0 0;
+  a{
+    color:#0099e8;
+    text-decoration: none;
+  }
+  a:hover{
+    opacity:0.5;
+  }
+  .title{
+    display:inline-block;
+    background-color: white;
+    margin:0 10px 10px 0;
+    padding: 10px 25px;
+    border-radius: 5px;
+  }
+
+  .analysis_menu{
+    margin:0 20px 50px 20px;
+    &__large-content{
+      .title{
+        display:inline-block;
+        background-color: white;
+        margin:0 10px 10px 0;
+        padding: 10px 25px;
+        border-radius: 5px;
+      }
+    }
+    &__middle-content{
+    }
+    &__small-content{
+    }
+  }
+}
