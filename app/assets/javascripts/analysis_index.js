@@ -4,10 +4,10 @@ $(function(){
     var myChart = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: gon.category_names,
+        labels: gon.labels_names,
         datasets: [{
-          label: gon.category_label,
-          data: gon.category_count,
+          label: gon.label,
+          data: gon.data,
           backgroundColor: 'rgba(255, 99, 132, 1.0)',
           borderColor: 'rgba(255, 50, 132, 1.0)',
           fill: false
@@ -16,7 +16,7 @@ $(function(){
       options: {
         title:  {
           display: true,
-          text: gon.category_title
+          text: gon.title
         }
       }
     });

@@ -7,24 +7,41 @@
   a:hover{
     opacity:0.5;
   }
-  .title{
+  .not_implemented{
+    margin:0 0 0 20px;
+    text-decoration: line-through;
+    a{
+      color:black;
+    }
+  }
+  .not_implemented:after{
+    content:"(Comming soon)";
+  }
+
+  .content{
     display:inline-block;
     background-color: white;
     margin:0 10px 10px 0;
     padding: 10px 25px;
     border-radius: 5px;
   }
-
+  .title{
+    padding:20px 0 20px 0;
+  }
   .analysis_menu{
     margin:0 20px 50px 20px;
+    .radio-input{
+      clip:rect(1px 1px 1px 1px);
+      position: absolute !important;
+    }
+    label{
+      transition:all .2s;
+    }
+    .radio-input:checked+.content{
+      background: #ea352d;
+      color:#fff;
+    }
     &__large-content{
-      .title{
-        display:inline-block;
-        background-color: white;
-        margin:0 10px 10px 0;
-        padding: 10px 25px;
-        border-radius: 5px;
-      }
     }
     &__middle-content{
     }
