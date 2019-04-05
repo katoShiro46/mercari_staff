@@ -48,7 +48,7 @@ private
   end
 
   def staff?
-    unless user_signed_in? && current_user.staff_authority = 1
+    unless user_signed_in? && current_user.staff_authority
       redirect_to root_path
     end
   end

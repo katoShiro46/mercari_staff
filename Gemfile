@@ -87,3 +87,7 @@ gem 'omniauth-facebook'
 gem 'faker'
 gem 'omniauth-google-oauth2'
 gem 'breadcrumbs_on_rails'
+gem 'rubyXL'
+gem 'whenever',require: false
+gem 'chart-js-rails'
+
