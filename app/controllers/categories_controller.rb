@@ -21,9 +21,11 @@ class CategoriesController < ApplicationController
   def edit
   end
 
-  def update
-    Category.find(params[:id]).update(category_params)
-    redirect_to categoties_edit_list_staffs_path
+  def update_pick_up
+    Category.roots.zip(category_params).each do |category,param|
+      category.update(pick_up:param)
+    end
+    redirect_to categories_edit_list_staffs_path
   end
 
   def edit_list
@@ -32,6 +34,8 @@ class CategoriesController < ApplicationController
 
   private
   def category_params
-    params.require(:category).permit(:pick_up)
+    # 取得した値がハッシュとなっているため配列に変換
+    new_params = params.require(:pick_up).values
+    return new_params
   end
 end
