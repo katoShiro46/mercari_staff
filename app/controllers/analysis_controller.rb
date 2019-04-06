@@ -2,6 +2,9 @@ class AnalysisController < ApplicationController
   before_action :header_menu,:staff?
   def index
     # TODO  共通メソッド化する必要あり！
+    @check_category = true  unless params[:option_1]
+    @check_count    = true  unless params[:option_2]
+    @check_all      = true  unless params[:option_3]
     @check_category = true
     count = []
     price = []
@@ -9,7 +12,11 @@ class AnalysisController < ApplicationController
     sell_price = []
     # if params[:content] == "category"
       # カテゴリーごとの検索の場合
-      @select_categories = Category.roots
+      if params[:category]
+        @select_categories = Category.children_of(params[:category])
+      else
+        @select_categories = Category.roots
+      end
       # カテゴリーごとの名称を取得
       gon.labels_names = @select_categories.map{|category| category[:name]}
       # カテゴリーごとのアイテム数,合計金額を取得
@@ -29,15 +36,15 @@ class AnalysisController < ApplicationController
         count << items.count
         price << items.map{|category| category[:price]}.sum
       end
-      if params[:option_2] == "count"
-        @check_count = true
-        gon.data = count
-        gon.label = "出品数"
-      elsif params[:option_2] == "price"
+      if params[:option_2] == "price"
         @check_price = true
         gon.data = price
         gon.label = "出品金額"
         params[:option_2] = true
+      else
+        @check_count = true
+        gon.data = count
+        gon.label = "出品数"
       end
       gon.title = "全カテゴリー"
     # else params[:content] == "user"
