@@ -1,5 +1,5 @@
 class ItemListController < ApplicationController
-  # before_action :staff?
+  before_action :staff?
   before_action :header_menu
 
   def index
