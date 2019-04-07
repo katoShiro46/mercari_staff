@@ -1,12 +1,12 @@
 = render partial:'shared/header'
-.categories_index
+.categories_edit_list
   .main-container
     .list-block
-      .list-block__title カテゴリー一覧
-      -@l_categories.each do |category|
-        =form_for(category) do |f|
-          =f.check_box :pick_up
-          .list-block__menu{id:"#{category.id}"}=category.name
-          =f.submit class:'button',value:'ピックアップに選択する'
-  =render partial:'categories/l-container_edit',collection:@l_categories,as: :l_category
+      .list-block__title ピックアップカテゴリー一覧
+      =form_tag(categories_edit_list_staffs_path,method:"put") do
+        -@l_categories.each do |category|
+          =hidden_field_tag("[pick_up][#{category.id}]",false,id:"")
+          =check_box_tag("[pick_up][#{category.id}]",true,checked = category.pick_up,class:'list-block__checkbox')
+          =label_tag("_pick_up_#{category.id}",category.name,class:'list-block__menu')
+        =submit_tag('ピックアップに選択',class:'list-block__submit')
 = render partial:'shared/footer'

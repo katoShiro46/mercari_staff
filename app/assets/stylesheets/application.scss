@@ -48,9 +48,13 @@
 @import 'categories/categories_index';
 @import 'categories/l-container';
 @import 'categories/categories_show';
+@import 'categories/categories_edit_list';
 
-//item-list
+//staffs
 @import 'staffs/staffs-index';
 
 //item-list
-@import 'item_list/item_list_index'
+@import 'item_list/item_list_index';
+
+//analysis
+@import 'analysis/analysis_index';
