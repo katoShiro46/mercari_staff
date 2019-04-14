@@ -1,7 +1,7 @@
 = render partial:'shared/header'
 .analysis_index
   .analysis_menu
-    =form_tag(analysis_index_path,method:"get") do
+    =form_tag(analysis_index_path,method:"get",id:"graph_update") do
       -# option1:カテゴリー/ユーザー/ブランド
       .option_1_box
         =radio_button_tag('option_1',"category",checked = @check_category,class:'radio-input')
@@ -18,13 +18,13 @@
         =label_tag('option_2_price','出品金額',class:'content')
       -# option3:全商品/出品中/売却済
       .option_3_box
-        =radio_button_tag('option_3',"all",checked = @check_all,class:'radio-input')
+        =radio_button_tag('option_3','all',checked = @check_all,class:'radio-input')
         =label_tag('option_3_all','全商品',class:'content')
         =radio_button_tag('option_3',"sell",checked = @check_sell,class:'radio-input')
         =label_tag('option_3_sell','出品中',class:'content')
         =radio_button_tag('option_3',"sold",checked = @check_sold,class:'radio-input')
         =label_tag('option_3_sold','売却済',class:'content')
-      =submit_tag("更新する",class:"submit")
+      -# =submit_tag("更新する",class:"submit",id:"graph_update_submit")
     %canvas#myChart{:height => "400", :width => "900"}
     .analysis_menu__small-content
       .title

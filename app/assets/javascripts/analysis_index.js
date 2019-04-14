@@ -1,44 +1,59 @@
 $(function(){
-  function chart(){
+  // チャートの新規作成
+  function chart(labels_names,label,data,title){
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: gon.labels_names,
+        labels: labels_names,
         datasets: [{
-          label: gon.label,
-          data: gon.data,
+          label: label,
+          data: data,
           backgroundColor: 'rgba(255, 99, 132, 1.0)',
           borderColor: 'rgba(255, 50, 132, 1.0)',
-          fill: false
+          fill: false,
         }]
       },
       options: {
         title:  {
           display: true,
-          text: gon.title
+          text: title,
         }
       }
     });
+    $(".radio-input").on('click',function(){
+      var param_1 = $('#graph_update [name=option_1]:checked').val();
+      var param_2 = $('#graph_update [name=option_2]:checked').val();
+      var param_3 = $('#graph_update [name=option_3]:checked').val();
+      var url = $('#graph_update').attr('action');
+      $.ajax({
+        type: 'GET',
+        url: url,
+        data: {
+          option_1: param_1,
+          option_2: param_2,
+          option_3: param_3},
+          dataType: 'json',
+          cache: false
+        })
+      .done(function(data){
+        changeData(myChart,data.labels_names,data.label,data.data,data.title)
+      })
+      .fail(function(){
+        alert('エラーが発生しました');
+      });
+    });
   }
-  chart()
-  // // ajax通信を用いて項目ごとのグラフを作成
-  // $(".graph").on('click',function(e){
-  //   e.preventDefault();
-  //   var category_id = $(this).attr('id');
-  //   var url =$(this).attr('action');
-  //   $.ajax({
-  //     type: 'GET',
-  //     url: url,
-  //     data: {id:category_id},
-  //     dataType: 'json'
-  //   })
-  //   .done(function(){
-  //     console.log(category_id);
-  //     // chart()
-  //   })
-  //   .fail(function(){
-  //     alert('だめ');
-  //   });
-  // });
+  // チャートの値の更新
+  function changeData(chart,labels_names,label,data,title) {
+    chart.data.labels = labels_names;
+    chart.data.datasets.forEach((dataset) => {
+      dataset.label =label;
+      dataset.data = data;
+    });
+    chart.options.title.text = title;
+    chart.update();
+  }
+
+  $(document).ready(chart(gon.labels_names,gon.label,gon.data,gon.title))
 });
