@@ -14,10 +14,11 @@ class AnalysisController < ApplicationController
     sell_price = []
     # if params[:content] == "category"
       # カテゴリーごとの検索の場合
-      if params[:category]
-        @select_categories = Category.children_of(params[:category])
+      if params[:option_l_category].present?
+        @select_categories = Category.children_of(params[:option_l_category])
       else
         @select_categories = Category.roots
+        # @select_categories = Category.children_of(params[:option_category])
       end
       # カテゴリーごとの名称を取得
       @labels_names = @select_categories.map{|category| category[:name]}
