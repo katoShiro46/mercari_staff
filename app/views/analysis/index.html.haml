@@ -1,7 +1,7 @@
 = render partial:'shared/header'
 .analysis_index
   .analysis_menu
-    =form_tag(analysis_index_path,method:"get") do
+    =form_tag(analysis_index_path,method:"get",id:"graph_update") do
       -# option1:カテゴリー/ユーザー/ブランド
       .option_1_box
         =radio_button_tag('option_1',"category",checked = @check_category,class:'radio-input')
@@ -10,6 +10,14 @@
         =label_tag('option_1_user','ユーザーごと',class:'content not_implemented')
         =radio_button_tag('option_1',"brand",checked = @check_brand,class:'radio-input')
         =label_tag('option_1_brand','ブランドごと',class:'content not_implemented')
+      -# option_l_category:カテゴリーごとに絞り込み
+      .option_l_category_box
+        =radio_button_tag('option_l_category',"",checed=true,class:'radio-input',id:'option_l_category_not_change')
+        =label_tag('option_l_category_not_change','絞り込みなし',class:'content')
+        -@select_categories.each do |category|
+          =radio_button_tag('option_l_category',category.id,checked=false,class:'radio-input')
+          =label_tag("option_l_category_#{category.id}",category.name,class:'content')
+      .option_m_category_box
       -# option2:合計出品個数/合計出品金額
       .option_2_box
         =radio_button_tag('option_2',"count",checked = @check_count,class:'radio-input')
@@ -18,18 +26,12 @@
         =label_tag('option_2_price','出品金額',class:'content')
       -# option3:全商品/出品中/売却済
       .option_3_box
-        =radio_button_tag('option_3',"all",checked = @check_all,class:'radio-input')
+        =radio_button_tag('option_3','all',checked = @check_all,class:'radio-input')
         =label_tag('option_3_all','全商品',class:'content')
         =radio_button_tag('option_3',"sell",checked = @check_sell,class:'radio-input')
         =label_tag('option_3_sell','出品中',class:'content')
         =radio_button_tag('option_3',"sold",checked = @check_sold,class:'radio-input')
         =label_tag('option_3_sold','売却済',class:'content')
-      =submit_tag("更新する",class:"submit")
+      -# =submit_tag("更新する",class:"submit",id:"graph_update_submit")
     %canvas#myChart{:height => "400", :width => "900"}
-    .analysis_menu__small-content
-      .title
-        ="詳細カテゴリー選択"
-    -@select_categories.each do |category|
-      .content
-        =link_to(category.name,analysis_index_path(category:category),class:'graph',id:category.id)
 = render partial:'shared/footer'
